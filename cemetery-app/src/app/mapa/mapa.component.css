@@ -1,0 +1,93 @@
+
+
+.grid-container {
+  border: 3px solid;
+  background-color: #3b814a;
+}
+
+.tomb
+{
+  fill: #5f5353;
+  stroke: black;
+  stroke-width: 0.08;
+}
+
+.tomb:hover
+{
+  fill: #cc511c;
+  enable-background: false;
+  display: block;
+}
+
+.road
+{
+  fill:  #b2b3a5;
+}
+
+.fence
+{
+  fill:  #000000;
+}
+
+.parking
+{
+  fill:  #50574f;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* .spotlight{
+  background: radial-gradient(5px 5px at 65px calc(100% - 65px), transparent 0, transparent 60px, rgba(0, 0, 0, 0.5) 65px);
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  z-index: 100000000;
+  bottom: 0px;
+  }
+
+  .on {
+    fill: pink;
+    stroke: red;
+    stroke-width: 2;
+  }
+
+  a:focus {
+    fill: pink;
+    stroke: red;
+    stroke-width: 1;
+  } */
+
+  .spotlight {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    pointer-events: none;
+  }

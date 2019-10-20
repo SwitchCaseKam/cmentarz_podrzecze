@@ -1,0 +1,68 @@
+<!-- <div class="grid-container">
+  <div *ngIf='people'>
+    <p style="text-align: center"><b>Informacje o zmarłych w danym grobie</b></p>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th style="background: #343A40; font-family: Calibri" scope="col">Imię i nazwisko</th>
+            <th style="background: #343A40; font-family: Calibri" scope="col">Data urodzenia</th>
+            <th style="background: #343A40; font-family: Calibri" scope="col">Data śmierci</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of people">
+            <th style="font-family: Calibri" scope="row"><b>{{ person.name }} {{ person.surname }}</b></th>  
+            <td style="font-family: Calibri" >{{ person.birthDate }}</td>
+            <td style="font-family: Calibri" >{{ person.deathDate }}</td> 
+          </tr> 
+        </tbody>
+    </table>
+  </div>
+ </div>
+<br>
+  <br>
+  <br> -->
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Informacje</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf='peopleCount > 0'>
+
+          <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th style="background: #343A40; font-family: Calibri" scope="col">Imię i nazwisko</th>
+                  <th style="background: #343A40; font-family: Calibri" scope="col">Data urodzenia</th>
+                  <th style="background: #343A40; font-family: Calibri" scope="col">Data śmierci</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let person of people">
+                  <th style="font-family: Calibri" scope="row"><b>{{ person.name }} {{ person.surname }}</b></th>  
+                  <td style="font-family: Calibri" >{{ person.birthDate }}</td>
+                  <td style="font-family: Calibri" >{{ person.deathDate }}</td> 
+                </tr> 
+              </tbody>
+          </table>
+        </div>
+        <div *ngIf='peopleCount === 0'>
+          Brak danych do wyświetlenia o tym grobie.<br>
+          Możliwe, że nikt w nim nie spoczywa.
+        </div>
+
+        <div *ngIf='peopleCount === -1'>
+            Brak odpowiedzi z serwera.<br>
+            Zgłoś problem administratorowi: <b>kamil.leczycki.ns@gmail.com</b>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+        </div>
+    </div>
+  </div>

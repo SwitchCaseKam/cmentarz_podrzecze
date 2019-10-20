@@ -1,0 +1,9 @@
+.text-element
+{
+    padding: 10px;
+    font-family: "Calibri";
+    color: rgb(32, 42, 53);
+    background-color: rgb(255, 255, 255);
+    /* border-style: solid;
+    border-width: 2px; */
+}
