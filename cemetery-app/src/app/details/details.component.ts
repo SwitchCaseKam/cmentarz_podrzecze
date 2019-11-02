@@ -10,6 +10,7 @@ export class DetailsComponent implements OnInit {
 
   people: any;
   peopleCount: number = -1;
+  graveCandleVisible = false;
 
   constructor(private dataService: DataService) { }
 
@@ -18,5 +19,13 @@ export class DetailsComponent implements OnInit {
       this.people = data;
       this.peopleCount = data.length; 
     });
+  }
+
+  showGraveCandle(event) {
+    this.graveCandleVisible = true;
+  }
+
+  clearGraveCandle(event){
+    this.graveCandleVisible = false;
   }
 }

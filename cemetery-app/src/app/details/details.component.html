@@ -50,6 +50,11 @@
                 </tr> 
               </tbody>
           </table>
+
+          <div *ngIf='graveCandleVisible === true'>
+            <img src="https://66.media.tumblr.com/36353c142e4369af32acd81bfac457fc/tumblr_mvmozlfDzP1rhncyso1_400.gifv" alt="Smiley face" height="80" width="142">
+          </div>
+          
         </div>
         <div *ngIf='peopleCount === 0'>
           Brak danych do wyświetlenia o tym grobie.<br>
@@ -62,7 +67,10 @@
           </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+        <div *ngIf='graveCandleVisible === false'>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)='showGraveCandle($event)'>Zapal znicz</button>
+        </div>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)='clearGraveCandle($event)'>Ok</button>
         </div>
     </div>
   </div>
