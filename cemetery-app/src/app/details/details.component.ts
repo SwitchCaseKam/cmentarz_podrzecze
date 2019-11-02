@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-details',
@@ -10,11 +11,14 @@ export class DetailsComponent implements OnInit {
 
   people: any;
   peopleCount: number = -1;
-  graveCandleVisible = false;
+  graveCandleVisible;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.graveCandleVisible = this.dataService.getGraveCandle().subscribe(
+      data => this.graveCandleVisible = data
+    );
     this.dataService.getCurrentTomb().subscribe(data => {
       this.people = data;
       this.peopleCount = data.length; 
@@ -22,10 +26,10 @@ export class DetailsComponent implements OnInit {
   }
 
   showGraveCandle(event) {
-    this.graveCandleVisible = true;
+    this.dataService.setGraveCandle(true);
   }
 
-  clearGraveCandle(event){
-    this.graveCandleVisible = false;
+  clearGraveCandle(){
+    this.graveCandleVisible = this.dataService.getGraveCandle();
   }
 }

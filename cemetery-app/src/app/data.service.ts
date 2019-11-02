@@ -13,6 +13,7 @@ export class DataService {
   allPeople = new Subject<any>();
   allMen  = new Subject<any>();
   allWomen = new Subject<any>();
+  public graveCandleFlag = new Subject<boolean>();
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -64,5 +65,13 @@ export class DataService {
 
   getInfoAboutTomb(tombId: string) {
     this.getTombById(tombId);
+  }
+
+  public getGraveCandle(): Observable<boolean> {
+    return this.graveCandleFlag.asObservable();
+  }
+
+  public setGraveCandle(status: boolean): void{
+    this.graveCandleFlag.next(status);
   }
 }

@@ -25,7 +25,7 @@ export class MapaComponent implements OnInit {
   getTombInfo(event) {
     console.log('getTombInfo - event');
     console.log(event);
-    
+    this.dataService.graveCandleFlag.next(false);
     // this.markTombService.getXValue().subscribe(data => this.x = data);
     // this.markTombService.getYValue().subscribe(data => this.y = data);
     this.dataService.getInfoAboutTomb(event.target.id);
