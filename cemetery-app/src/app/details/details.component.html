@@ -67,8 +67,10 @@
           </div>
       </div>
       <div class="modal-footer">
-        <div *ngIf='graveCandleVisible === false'>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)='showGraveCandle($event)'>Zapal znicz</button>
+        <div *ngIf='peopleCount !== 0'>
+          <div *ngIf='graveCandleVisible === false'>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)='showGraveCandle($event)'>Zapal znicz</button>
+          </div>
         </div>
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)='clearGraveCandle($event)'>Ok</button>
         </div>
