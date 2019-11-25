@@ -30,7 +30,7 @@ import { DataService } from '../data.service';
 export class PieChartComponent implements OnInit {
   
   public pieChartLabels = ['Kobiety', 'Mężczyzni'];
-  public pieChartData = [138, 203];
+  public pieChartData = [138, 205];
   public pieChartType = 'pie';
 
   
