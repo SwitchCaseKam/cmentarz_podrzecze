@@ -66,7 +66,7 @@ export class SearcherComponent implements OnInit {
     this.markTombService.getYValue().subscribe(data => this.y = data);
     
     this.dataService.getInfoAboutTomb(this.chosenTombId);
-    
+    this.dataService.setGraveCandle(false);
     console.log('Tomb parameters');
     
     
