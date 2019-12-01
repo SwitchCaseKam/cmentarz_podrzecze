@@ -26,6 +26,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PeopleTableComponent } from './people-table/people-table.component';
 import { CookieLawModule } from 'angular2-cookie-law';
 import { RulesComponent } from './rules/rules.component';
+import { AnniversaryComponent } from './anniversary/anniversary.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { RulesComponent } from './rules/rules.component';
     ContactComponent,
     PeopleTableComponent,
     RulesComponent,
+    AnniversaryComponent,
 
   ],
   imports: [

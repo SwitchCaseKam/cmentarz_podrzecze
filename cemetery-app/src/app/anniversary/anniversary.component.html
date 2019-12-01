@@ -1,0 +1,16 @@
+<br>
+<div class='calendarCard'>
+    <div *ngIf='anniversaryPeopleCount > 0'>
+        <h5><b>Dzisiejsze rocznice śmierci:</b></h5> <br>
+
+        <div *ngFor="let person of anniversaryPeople">
+        <h6 style="font-family: Calibri" scope="row"><b>{{ person.name }} {{ person.surname }}</b><br>
+            {{ person.anniversaryCounter }}. rocznica <br></h6>
+        </div> 
+    </div>
+</div>
+
+
+
+
+
