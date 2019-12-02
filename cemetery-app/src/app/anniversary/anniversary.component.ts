@@ -11,7 +11,7 @@ export class AnniversaryComponent implements OnInit {
   people: any;
   todayDateAndMonth: string;
   anniversaryPeople: any = [];
-  anniversaryPeopleCount = 0;
+  anniversaryPeopleCount = -1;
 
   constructor(private dataService: DataService) { }
 
@@ -41,9 +41,10 @@ export class AnniversaryComponent implements OnInit {
           let anniversaryCounter: number = today.getFullYear() - parseInt(date[2]);
           this.people[i]['anniversaryCounter'] = anniversaryCounter
           this.anniversaryPeople.push(this.people[i]);
-          this.anniversaryPeopleCount = this.anniversaryPeople.length;
+          ;
         }
       }
+      this.anniversaryPeopleCount = this.anniversaryPeople.length;
     }
   }
 
