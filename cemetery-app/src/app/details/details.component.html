@@ -50,11 +50,19 @@
                 </tr> 
               </tbody>
           </table>
+          <!-- <img id="myImg" src="https://scx1.b-cdn.net/csz/news/800/2019/nasamoonrock.jpg" alt="Snow" style="width:100%;max-width:300px"> -->
+          <div *ngIf='currentTombId'>
+              <div class="picture-element">
+                  <span style="font-family: Calibri"><b>Zdjęcia:</b></span>
+                  <ks-modal-gallery [modalImages]="images"></ks-modal-gallery>
+                </div>
 
-          <div *ngIf='graveCandleVisible === true'>
-            <img src="https://66.media.tumblr.com/36353c142e4369af32acd81bfac457fc/tumblr_mvmozlfDzP1rhncyso1_400.gifv" alt="Smiley face" height="80" width="142">
           </div>
-          
+         
+        </div>
+        <div *ngIf='graveCandleVisible === true'>
+          <br>
+          <img src="https://66.media.tumblr.com/36353c142e4369af32acd81bfac457fc/tumblr_mvmozlfDzP1rhncyso1_400.gifv" alt="Smiley face" height="80" width="142">
         </div>
         <div *ngIf='peopleCount === 0'>
           Brak danych do wyświetlenia o tym grobie.<br>
@@ -76,3 +84,4 @@
         </div>
     </div>
   </div>
+

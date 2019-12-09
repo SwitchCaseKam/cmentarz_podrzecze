@@ -6,6 +6,7 @@ import { CemeteryLayoutComponent } from './cemetery-layout/cemetery-layout.compo
 import { ContactComponent } from './contact/contact.component';
 import { PeopleTableComponent } from './people-table/people-table.component';
 import { RulesComponent } from './rules/rules.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 const routes: Routes = [
   { path: 'map', component: CemeteryLayoutComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent }, 
   { path: 'list', component: PeopleTableComponent }, 
   { path: 'rules', component: RulesComponent }, 
+  { path: 'gallery', component: GalleryComponent},
   { path: '**', component: HomeComponent}
 ]
 

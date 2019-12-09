@@ -3,3 +3,9 @@
     background-color: #c4cad1;
     margin-top: 4px;
   }
+
+  .picture-element
+{
+    display: inline-block;
+    padding: 5px; 
+}

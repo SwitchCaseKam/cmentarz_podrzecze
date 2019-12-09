@@ -27,6 +27,12 @@ import { PeopleTableComponent } from './people-table/people-table.component';
 import { CookieLawModule } from 'angular2-cookie-law';
 import { RulesComponent } from './rules/rules.component';
 import { AnniversaryComponent } from './anniversary/anniversary.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import 'hammerjs';
+import 'mousetrap';
+import { ModalGalleryModule } from 'angular-modal-gallery';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +53,7 @@ import { AnniversaryComponent } from './anniversary/anniversary.component';
     PeopleTableComponent,
     RulesComponent,
     AnniversaryComponent,
-
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,9 @@ import { AnniversaryComponent } from './anniversary/anniversary.component';
     MatAutocompleteModule,
     ReactiveFormsModule,
     FormsModule,
-    CookieLawModule
+    CookieLawModule,
+    NgbModule,
+    ModalGalleryModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

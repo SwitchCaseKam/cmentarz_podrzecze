@@ -13,6 +13,7 @@ export class DataService {
   allPeople = new Subject<any>();
   allMen  = new Subject<any>();
   allWomen = new Subject<any>();
+  currentTombId = new Subject<any>();
   public graveCandleFlag = new Subject<boolean>();
 
   httpOptions = {
@@ -32,6 +33,7 @@ export class DataService {
   public getTombById(id: string){
     this.httpClient.get(`${this.apiUrl}/people?tombId=${id}`).subscribe((res)=>{
       this.currentTomb.next(res);
+      console.log(res);
     });
   };
 
@@ -64,6 +66,7 @@ export class DataService {
   }
 
   getInfoAboutTomb(tombId: string) {
+    this.currentTombId.next(tombId);
     this.getTombById(tombId);
   }
 
@@ -73,5 +76,10 @@ export class DataService {
 
   public setGraveCandle(status: boolean): void{
     this.graveCandleFlag.next(status);
+  }
+
+  public getCurrentTombId(): Observable<any>{
+    console.log(this.currentTombId);
+    return this.currentTombId.asObservable();
   }
 }
