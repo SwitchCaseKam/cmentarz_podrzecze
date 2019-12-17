@@ -9,3 +9,10 @@
     background: rgba(0, 0, 0, 0.7);
 }
  
+.picture-element
+{
+    display: inline-block;
+    padding: 20px; 
+
+
+}

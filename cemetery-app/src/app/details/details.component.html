@@ -51,10 +51,19 @@
               </tbody>
           </table>
           <!-- <img id="myImg" src="https://scx1.b-cdn.net/csz/news/800/2019/nasamoonrock.jpg" alt="Snow" style="width:100%;max-width:300px"> -->
-          <div *ngIf='currentTombId'>
+          <div *ngIf='pictureFlag'>
               <div class="picture-element">
-                  <span style="font-family: Calibri"><b>Zdjęcia:</b></span>
-                  <ks-modal-gallery [modalImages]="images"></ks-modal-gallery>
+                  <span style="font-family: Calibri"><b>Zdjęcia:<br></b></span>
+                  <!-- <ks-modal-gallery [modalImages]="images"></ks-modal-gallery> -->
+                  <!-- Trigger the Modal -->
+            <img id="tomb-right" src='../../assets/img/tomb-right-{{currentTombId}}.jpg' style="width:50%;max-width:200px" (click)='zoomPicture($event)'>
+            <img id="tomb-front" src='../../assets/img/tomb-front-{{currentTombId}}.jpg' style="width:50%;max-width:200px" (click)='zoomPicture($event)'>
+
+            <div id="pictureModal" class="modal">
+              <span class="close" (click)='closeZoomedPicture()'>&times;</span>
+              <img class="picture-modal-content" id="pictureInModal">
+            </div>
+            <br><i>Zdjęcia w fazie testów.</i>
                 </div>
 
           </div>

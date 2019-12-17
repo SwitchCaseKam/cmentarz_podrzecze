@@ -15,6 +15,7 @@ export class DataService {
   allWomen = new Subject<any>();
   currentTombId = new Subject<any>();
   public graveCandleFlag = new Subject<boolean>();
+  pictureFlag = new Subject<boolean>();
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -67,6 +68,8 @@ export class DataService {
 
   getInfoAboutTomb(tombId: string) {
     this.currentTombId.next(tombId);
+    this.pictureFlag.next(this.checkIfPictureExist(tombId));
+    console.log(this.pictureFlag);
     this.getTombById(tombId);
   }
 
@@ -81,5 +84,21 @@ export class DataService {
   public getCurrentTombId(): Observable<any>{
     console.log(this.currentTombId);
     return this.currentTombId.asObservable();
+  }
+
+  checkIfPictureExist(tombId): boolean {
+    let result = false;
+    console.log(tombId);
+    let pictures = ['121', '305', '303', '302']
+    for (let pictureId of pictures) {
+      if (pictureId === tombId) {
+        result = true;
+      }
+    }
+    return result;
+  }
+
+  getPictureFlag(): Observable<boolean> {
+    return this.pictureFlag.asObservable();
   }
 }

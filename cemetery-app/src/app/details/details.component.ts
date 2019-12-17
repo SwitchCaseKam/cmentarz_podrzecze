@@ -17,24 +17,13 @@ export class DetailsComponent implements OnInit {
   graveCandleVisible;
   currentTombId: any; 
   images: Image[];
+  pictureFlag: boolean;
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.getCurrentTombId().subscribe(
       data => {
         this.currentTombId = data;
-        console.log('../../assets/img/cemetery-' + this.currentTombId.toString() + '.jpg')
-        this.images = [
-          new Image(0, {
-            img: '../../assets/img/cemetery-' + this.currentTombId.toString() + '.jpg'
-          }),
-          // new Image(1, {
-          //   img: '../../assets/img/cemetery-' + this.currentTombId + '.jpg'
-          // }),
-          // new Image(2, {
-          //   img: '../../assets/img/cemetery-' + this.currentTombId + '.jpg'
-          // })
-        ];
       }
     )
     this.graveCandleVisible = this.dataService.getGraveCandle().subscribe(
@@ -44,6 +33,11 @@ export class DetailsComponent implements OnInit {
       this.people = data;
       this.peopleCount = data.length; 
     });
+
+    this.dataService.getPictureFlag().subscribe(data => {
+      console.log(data);
+      this.pictureFlag = data; 
+    })
   }
 
   showGraveCandle(event) {
@@ -53,6 +47,22 @@ export class DetailsComponent implements OnInit {
   clearGraveCandle(){
     this.graveCandleVisible = this.dataService.getGraveCandle();
   }
+
+  zoomPicture(event){
+    console.log(event)
+    let modal = document.getElementById("pictureModal");
+    let img = document.getElementById(event.target.id);
+    let modalImg = document.getElementById("pictureInModal");
+
+    modal.style.display = "block";
+    modalImg['src'] = img['src'];
+  }
+
+  closeZoomedPicture() {
+    var modal = document.getElementById("pictureModal");
+    modal.style.display = "none";
+  }
+
 }
 
 // Licence for angular-modal-gallery
