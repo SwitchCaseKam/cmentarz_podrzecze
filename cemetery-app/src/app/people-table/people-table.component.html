@@ -1,8 +1,8 @@
 <div class="container">
     <br>
-    <b>Posortowano alfabetycznie według nazwisk.</b> Stan na dzień 25.11.2019.<br><br>
+    
     <div *ngIf='peopleCount > 0'>
-
+    <b>Posortowano alfabetycznie według nazwisk.</b> Stan na dzień 25.11.2019.<br><br>
         <table class="table">
             <thead class="thead-dark">
               <tr>
@@ -21,6 +21,10 @@
               </tr> 
             </tbody>
         </table>
+      </div>
+      <div *ngIf='peopleCount === -1'>
+        <br><div class="loader"></div>
+        <br><div style="text-align:center">Trwa ładowanie spisu zmarłych ...</div>
       </div>
 </div>
 <br>

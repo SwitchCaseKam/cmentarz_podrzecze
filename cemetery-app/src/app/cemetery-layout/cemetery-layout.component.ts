@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-cemetery-layout',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CemeteryLayoutComponent implements OnInit {
 
-  constructor() { }
+  connectionStatus: any = false;
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.getPeople();
+    this.dataService.getAllPeople().subscribe(
+      data => {
+        this.connectionStatus = true;
+      }
+    )
   }
-
 }

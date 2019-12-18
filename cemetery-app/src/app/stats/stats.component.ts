@@ -12,7 +12,7 @@ export class StatsComponent implements OnInit {
   allMen: any;
   allWomen: any;
 
-  allPeopleCount: number;
+  allPeopleCount: number = -1;
   allMenCount: number; 
   allWomenCount: number;
   

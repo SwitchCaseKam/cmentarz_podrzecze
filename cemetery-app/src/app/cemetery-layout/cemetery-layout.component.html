@@ -1,20 +1,27 @@
 <div class="container">
-    <br>
-    <div style="text-align: center;">
-        <h5>
-            Tutaj znajdziesz mapę cmentarza wraz z możliwością wyszukiwania zmarłych.
-            <br>Dane na temat zmarłych można zobaczyć na mapie, klikając na konkretny grób<br>
-            lub wpisjąc imię i nazwisko zmarłego w wyszukiwarkę.
-        </h5>
+    <div *ngIf='connectionStatus'>
+        <br>
+            <div style="text-align: center;">
+                <h5>
+                    Tutaj znajdziesz mapę cmentarza wraz z możliwością wyszukiwania zmarłych.
+                    <br>Dane na temat zmarłych można zobaczyć na mapie, klikając na konkretny grób<br>
+                    lub wpisjąc imię i nazwisko zmarłego w wyszukiwarkę.
+                </h5>
+            </div>
+        <br>
+        <div style="text-align: center;">
+            <app-searcher></app-searcher>
+        </div>
+        <br><br>
+        <app-mapa></app-mapa>
+        Stan na dzień 25.11.2019
+        <br>
+        <br><br>
     </div>
-  <br>
-<div style="text-align: center;">
-    <app-searcher></app-searcher>
-</div>
-<br><br>
-<app-mapa></app-mapa>
-Stan na dzień 25.11.2019
-<br>
-<br><br>
+
+    <div *ngIf='!connectionStatus'>
+        <br><div class="loader"></div>
+        <br><div style="text-align:center">Trwa ładowanie mapy ...</div>
+    </div>
 </div>
    
