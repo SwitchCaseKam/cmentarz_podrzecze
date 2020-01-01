@@ -27,8 +27,12 @@ export class AnniversaryComponent implements OnInit {
   getCurrentDate(): string {
     let todayDate: string;
     let today = new Date();
-    todayDate = today.getDate() + '.' + (today.getMonth() + 1);
-    console.log('Today date:' + todayDate);
+    if (today.getMonth().toString().length === 1) {
+      todayDate = today.getDate() + '.0' + (today.getMonth() + 1);
+    } else {
+      todayDate = today.getDate() + '.' + (today.getMonth() + 1);
+    }
+    console.log('Today date: ' + todayDate);
     return todayDate;
   }
 
