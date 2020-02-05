@@ -30,7 +30,7 @@ export class DataService {
       console.log(this.allPeople);
     });
   };
-  
+
   public getTombById(id: string){
     this.httpClient.get(`${this.apiUrl}/people?tombId=${id}`).subscribe((res)=>{
       this.currentTomb.next(res);

@@ -11,37 +11,37 @@
 //   constructor() { }
 
 //   ngOnInit() {
-    
+
 //   }
 
-    
+
 
 // }
 
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 
- 
+
 @Component({
 	selector: 'app-pie-chart',
 	templateUrl: './pie-chart.component.html'
 })
- 
+
 export class PieChartComponent implements OnInit {
-  
+
   public pieChartLabels = ['Kobiety', 'Mężczyzni'];
-  public pieChartData = [138, 207];
+  public pieChartData = [140, 207];
   public pieChartType = 'pie';
 
-  
+
   allPeople: any;
   allMen: any;
   allWomen: any;
 
   allPeopleCount: number;
-  allMenCount: number; 
+  allMenCount: number;
   allWomenCount: number;
-  
+
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -51,7 +51,7 @@ export class PieChartComponent implements OnInit {
     //   this.allPeopleCount = data.length;
     //   this.pieChartData = [];
     // });
-    
+
     // this.dataService.getMen();
     // this.dataService.getAllMen().subscribe(data => {
     //   this.allMen = data;
