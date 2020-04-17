@@ -33,7 +33,7 @@ export class BarChartComponent implements OnInit {
     '5','6','4','6','11','7','4','10','7','5',
     '7','12','8','9','8','11','9','9','13','5',
     '8','11','15','10','12','13','8','6','10','12',
-    '1'], label: 'Liczba zmarłych w danym roku'}
+    '3'], label: 'Liczba zmarłych w danym roku'}
   ];
 
   constructor() { }
