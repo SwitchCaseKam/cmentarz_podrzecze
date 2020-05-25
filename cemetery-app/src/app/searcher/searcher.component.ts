@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
 import { DataService } from '../data.service';
 import { MarkTombService } from '../mark-tomb.service';
+import { Person } from '../person.model';
 
 @Component({
   selector: 'app-searcher',
@@ -11,77 +12,53 @@ import { MarkTombService } from '../mark-tomb.service';
   styleUrls: ['./searcher.component.css']
 })
 
-export class SearcherComponent implements OnInit {
-  myControl = new FormControl();
-  options: string[] = [];
-  filteredOptions: Observable<string[]>;
-
-  allPeople: any;
-  chosenTombId: string;
-  x: any = '-10%';
-  y: any = '-10%';
+export class SearcherComponent implements OnInit, OnDestroy {
+  public  myControl = new FormControl();
+  public filteredOptions: Observable<string[]>;
+  private options: string[] = [];
+  private allPeople: Person[];
+  private chosenTombId: string;
+  private x = '-10%';
+  private y = '-10%';
+  private peopleDataSubscription: Subscription;
 
   constructor(private dataService: DataService, private markTombService: MarkTombService) { }
 
-  ngOnInit() {
-    this.dataService.getPeople();
-    this.dataService.getAllPeople().subscribe(data => {
-      
-      this.allPeople = data;
-      this._createPeopleOptions(this.allPeople);
-      
+  public ngOnInit() {
+    this.peopleDataSubscription = this.dataService.getAllPeople().subscribe((allPeople: Person[]) => {
+      this.allPeople = allPeople;
+      this.createPeopleOptions();
     });
-   
-    
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
+    this.filteredOptions = this.myControl.valueChanges.pipe(
         startWith(''),
         map(value => this._filter(value))
       );
   }
 
+  public ngOnDestroy(): void {
+    this.peopleDataSubscription.unsubscribe();
+  }
+
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  private _createPeopleOptions(allPeople: any) {
-
-    for (let person of this.allPeople) {
-      this.options.push(person.tombId + " " + person.name + " " + person.surname);
+  private createPeopleOptions(): void {
+    for (const person of this.allPeople) {
+      this.options.push(person.tombId + ' ' + person.name + ' ' + person.surname);
     }
   }
 
-  public getChosenPerson(value) {
-    this.chosenTombId = value.split(' ')[0];
+  public getChosenPerson(searchInput: string): void {
+    this.chosenTombId = searchInput.split(' ')[0];
   }
 
-  public getTombInfo(event) {
-    console.log('event');
-    console.log(event);
-    let element = document.getElementById(this.chosenTombId);
+  public getTombInfo(): void {
+    const element = document.getElementById(this.chosenTombId);
     this.markTombService.updateValuesByHtmlElement(element);
-    this.markTombService.getXValue().subscribe(data => this.x = data);
-    this.markTombService.getYValue().subscribe(data => this.y = data);
-    
+    this.markTombService.getXValue().subscribe(xVal => this.x = xVal);
+    this.markTombService.getYValue().subscribe(yVal => this.y = yVal);
     this.dataService.getInfoAboutTomb(this.chosenTombId);
-    this.dataService.setGraveCandle(false);
-    console.log('Tomb parameters');
-    
-    
-    
-
-    // console.log(element.x.animVal.value);
-    // console.log(element.y.animVal.valueInSpecifiedUnits);
-    // console.log(element.height.animVal.value);
-    // console.log(element.width.animVal.value);
-
-
-
-
   }
-
-
-
 }

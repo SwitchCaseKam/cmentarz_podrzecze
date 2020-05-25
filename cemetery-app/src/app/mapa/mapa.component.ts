@@ -9,31 +9,18 @@ import { MarkTombService } from '../mark-tomb.service';
 })
 export class MapaComponent implements OnInit {
 
-  isClicked = false;
-  x: any = '-10%';
-  y: any = '-10%';
+  private x = '-10%';
+  private y = '-10%';
 
-  constructor(private dataService: DataService, private markTombService: MarkTombService) {
-    
-   }
+  constructor(private dataService: DataService, private markTombService: MarkTombService) {}
 
   ngOnInit() {
-    this.markTombService.getXValue().subscribe(data => this.x = data);
-    this.markTombService.getYValue().subscribe(data => this.y = data);
+    this.markTombService.getXValue().subscribe(xVal => this.x = xVal);
+    this.markTombService.getYValue().subscribe(yVal => this.y = yVal);
   }
 
-  getTombInfo(event) {
-    console.log('getTombInfo - event');
-    console.log(event);
-    this.dataService.graveCandleFlag.next(false);
-    // this.markTombService.getXValue().subscribe(data => this.x = data);
-    // this.markTombService.getYValue().subscribe(data => this.y = data);
+  public getTombInfo(event): void {
     this.dataService.getInfoAboutTomb(event.target.id);
-    this.markTombService.updateValues(event.target.x.animVal.value + event.target.width.animVal.value/2 + '%',
-    event.target.y.animVal.valueInSpecifiedUnits + 1.5*event.target.height.animVal.value + '%')
-  
-
+    this.markTombService.updateValuesByHtmlElement(event.target);
   }
-  
-  
 }

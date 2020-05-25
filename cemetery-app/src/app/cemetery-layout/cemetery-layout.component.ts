@@ -1,23 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from '../data.service';
+import { Person } from '../person.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cemetery-layout',
   templateUrl: './cemetery-layout.component.html',
   styleUrls: ['./cemetery-layout.component.css']
 })
-export class CemeteryLayoutComponent implements OnInit {
+export class CemeteryLayoutComponent implements OnInit, OnDestroy {
 
-  connectionStatus: any = false;
+  public peopleCount = 0;
+  public dbDate: string;
+  private people: Person[];
+  private peopleDataSubscription: Subscription;
 
   constructor(private dataService: DataService) { }
 
-  ngOnInit() {
-    this.dataService.getPeople();
-    this.dataService.getAllPeople().subscribe(
-      data => {
-        this.connectionStatus = true;
+  public ngOnInit() {
+    this.getPeopleInfo();
+    this.dbDate = this.getDbDateInfo();
+  }
+
+  public ngOnDestroy() {
+    this.peopleDataSubscription.unsubscribe();
+  }
+
+  private getPeopleInfo(): void {
+    this.peopleDataSubscription = this.dataService.getAllPeople().subscribe(
+      (allPeople: Person[]) => {
+        this.people = allPeople;
+        this.peopleCount = allPeople.length;
       }
-    )
+    );
+  }
+
+  private getDbDateInfo(): string {
+    return this.dataService.getDbDate();
   }
 }

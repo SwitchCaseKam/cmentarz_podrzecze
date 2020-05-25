@@ -11,10 +11,10 @@
         </thead>
         <tbody>
           <tr *ngFor="let person of people">
-            <th style="font-family: Calibri" scope="row"><b>{{ person.name }} {{ person.surname }}</b></th>  
+            <th style="font-family: Calibri" scope="row"><b>{{ person.name }} {{ person.surname }}</b></th>
             <td style="font-family: Calibri" >{{ person.birthDate }}</td>
-            <td style="font-family: Calibri" >{{ person.deathDate }}</td> 
-          </tr> 
+            <td style="font-family: Calibri" >{{ person.deathDate }}</td>
+          </tr>
         </tbody>
     </table>
   </div>
@@ -44,10 +44,10 @@
               </thead>
               <tbody>
                 <tr *ngFor="let person of people">
-                  <th style="font-family: Calibri" scope="row"><b>{{ person.name }} {{ person.surname }}</b></th>  
+                  <th style="font-family: Calibri" scope="row"><b>{{ person.name }} {{ person.surname }}</b></th>
                   <td style="font-family: Calibri" >{{ person.birthDate }}</td>
-                  <td style="font-family: Calibri" >{{ person.deathDate }}</td> 
-                </tr> 
+                  <td style="font-family: Calibri" >{{ person.deathDate }}</td>
+                </tr>
               </tbody>
           </table>
           <!-- <img id="myImg" src="https://scx1.b-cdn.net/csz/news/800/2019/nasamoonrock.jpg" alt="Snow" style="width:100%;max-width:300px"> -->
@@ -67,7 +67,7 @@
                 </div>
 
           </div>
-         
+
         </div>
         <div *ngIf='graveCandleVisible === true'>
           <br>
@@ -86,7 +86,7 @@
       <div class="modal-footer">
         <div *ngIf='peopleCount !== 0'>
           <div *ngIf='graveCandleVisible === false'>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)='showGraveCandle($event)'>Zapal znicz</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)='showGraveCandle()'>Zapal znicz</button>
           </div>
         </div>
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)='clearGraveCandle()'>Ok</button>

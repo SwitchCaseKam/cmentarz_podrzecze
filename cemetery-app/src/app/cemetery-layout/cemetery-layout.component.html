@@ -1,5 +1,5 @@
 <div class="container">
-    <div *ngIf='connectionStatus'>
+    <div *ngIf='peopleCount > 0'>
         <br>
             <div style="text-align: center;">
                 <h5>
@@ -14,12 +14,12 @@
         </div>
         <br><br>
         <app-mapa></app-mapa>
-        Stan na dzień 2.05.2020
+        Stan na dzień {{dbDate}}
         <br>
         <br><br>
     </div>
 
-    <div *ngIf='!connectionStatus'>
+    <div *ngIf='peopleCount === 0'>
         <br><div class="loader"></div>
         <br><div style="text-align:center">Trwa ładowanie mapy ...</div>
     </div>

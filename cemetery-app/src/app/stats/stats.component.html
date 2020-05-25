@@ -1,6 +1,6 @@
 <div class="container">
-    <div *ngIf='allPeopleCount > 0'>
-        <br>Stan na dzień 2.05.2020<br>
+    <ng-container *ngIf='allPeopleCount > 0'>
+        <br>Stan na dzień {{dbDate}}<br>
         <h5>Liczba wszystkich zmarłych na cmentarzu:  <b>{{ allPeopleCount }}</b></h5>
         <h5>Liczba wszystkich mężczyzn:  <b>{{ allMenCount }}</b></h5>
         <h5>Liczba wszystkich kobiet:  <b>{{ allWomenCount }}</b></h5><br>
@@ -8,7 +8,9 @@
             <b>Liczba zmarłych pochowanych w danym roku</b>
         </h5>
         <div class="col-lg-12">
-            <app-bar-chart></app-bar-chart>
+            <app-bar-chart
+              [chartData]="peopleByYearArray"
+              [barChartLabels]="deathYears"></app-bar-chart>
         </div>
         <br>
         <br>
@@ -16,12 +18,14 @@
                 <b>Liczba kobiet i mężczyzn spoczywających na cmentarzu</b>
             </h5>
             <div class="col-lg-12">
-                <app-pie-chart></app-pie-chart>
+                <app-pie-chart
+                  allMenCount={{allMenCount}}
+                  allWomenCount={{allWomenCount}}></app-pie-chart>
             </div>
-    </div>
-    <div *ngIf='allPeopleCount === -1'>
+    </ng-container>
+    <ng-container *ngIf='allPeopleCount === 0'>
         <br><div class="loader"></div>
         <br><div style="text-align:center">Trwa ładowanie statystyk ...</div>
-    </div>
+    </ng-container>
 </div>
 <br>

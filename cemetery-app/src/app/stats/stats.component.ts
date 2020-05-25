@@ -1,42 +1,61 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from '../data.service';
+import { Person } from '../person.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-stats',
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.css']
 })
-export class StatsComponent implements OnInit {
+export class StatsComponent implements OnInit, OnDestroy {
 
-  allPeople: any;
-  allMen: any;
-  allWomen: any;
+  public allPeopleCount = 0;
+  public allMenCount: number;
+  public allWomenCount: number;
+  public dbDate: string;
+  public deathYears: string[] = [];
+  public peopleByYearArray: number[] = [];
 
-  allPeopleCount: number = -1;
-  allMenCount: number; 
-  allWomenCount: number;
-  
+  private peopleDataSubscription: Subscription;
+
   constructor(private dataService: DataService) { }
 
-  ngOnInit() {
-    this.dataService.getPeople();
-    this.dataService.getAllPeople().subscribe(data => {
-      this.allPeople = data;
-      this.allPeopleCount = data.length;
-    });
-    
-    this.dataService.getMen();
-    this.dataService.getAllMen().subscribe(data => {
-      this.allMen = data;
-      this.allMenCount = data.length;
-    });
+  public ngOnInit() {
+    this.getPeopleInfo();
+    this.dbDate = this.getDbDate();
+  }
 
-    this.dataService.getWomen();
-    this.dataService.getAllWomen().subscribe(data => {
-      this.allWomen = data;
-      this.allWomenCount = data.length;
+  public ngOnDestroy() {
+    this.peopleDataSubscription.unsubscribe();
+  }
+
+  private getPeopleInfo() {
+    this.peopleDataSubscription = this.dataService.getAllPeople().subscribe((allPeople: Person[]) => {
+      this.allPeopleCount = allPeople.length;
+      this.setSexesData(allPeople);
+      this.setDeathsByYearData(allPeople);
+    }, error => {
+      console.log('[ST.C] unable to subscribe to allPeople');
     });
   }
 
+  private setSexesData(allPeople: Person[]) {
+    this.allMenCount = allPeople.filter((item) => item.sex === 'M').length;
+    this.allWomenCount = allPeople.filter((item) => item.sex === 'K').length;
+  }
 
+  private setDeathsByYearData(allPeople: Person[]) {
+    if (this.allMenCount && this.allWomenCount) {
+      for (let year = 1943; year <= new Date().getFullYear(); year++) {
+        const peopleByYear = allPeople.filter((person) => person.deathDate.includes(year.toString())).length;
+        this.peopleByYearArray.push(peopleByYear);
+        this.deathYears.push(year.toString());
+      }
+    }
+  }
+
+  private getDbDate(): string {
+    return this.dataService.getDbDate();
+  }
 }

@@ -6,27 +6,21 @@ import { Subject, Observable } from 'rxjs';
 })
 export class MarkTombService {
 
-  xValue = new Subject<any>();
-  yValue = new Subject<any>();
+  private xValue = new Subject<string>();
+  private yValue = new Subject<string>();
 
   constructor() { }
-  
 
-  public updateValues(x, y) {
-    this.xValue.next(x);
-    this.yValue.next(y);
-  }
-
-  public getXValue(): Observable<any> {
+  public getXValue(): Observable<string> {
     return this.xValue.asObservable();
   }
 
-  public getYValue(): Observable<any> {
+  public getYValue(): Observable<string> {
     return this.yValue.asObservable();
   }
 
-  public updateValuesByHtmlElement(element: any) {
-    this.xValue.next(element.x.animVal.value + element.width.animVal.value/2 + '%');
-    this.yValue.next(element.y.animVal.valueInSpecifiedUnits + 1.5*element.height.animVal.value + '%');
+  public updateValuesByHtmlElement(element: any): void {
+    this.xValue.next(element.x.animVal.value + element.width.animVal.value / 2 + '%');
+    this.yValue.next(element.y.animVal.valueInSpecifiedUnits + 1.5 * element.height.animVal.value + '%');
   }
 }

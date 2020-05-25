@@ -1,104 +1,143 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Person } from './person.model';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject, of } from 'rxjs';
+import { DbDate } from './dbDate.model';
+import { retry, delay, retryWhen, mergeMap, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  apiUrl: string = 'https://test-node-tomb-server.herokuapp.com';
-  currentTomb = new Subject<any>();
-  allPeople = new Subject<any>();
-  allMen  = new Subject<any>();
-  allWomen = new Subject<any>();
-  currentTombId = new Subject<any>();
-  public graveCandleFlag = new Subject<boolean>();
-  pictureFlag = new Subject<boolean>();
+  private apiUrl = 'https://test-node-tomb-server.herokuapp.com';
+  private currentTomb = new Subject<Map<number, Person[]>>();
+
+  private allPeople: Person[];
+  private allMen: Person[];
+  private allWomen: Person[];
+
+  private allPeopleSubject = new BehaviorSubject<Person[]>([]);
+  private allMenSubject  = new BehaviorSubject<Person[]>([]);
+  private allWomenSubject = new BehaviorSubject<Person[]>([]);
+
+  private pictureFlag = new Subject<boolean>();
+
+  private dbDateSubject = new Subject<string>();
+  private dbDate: string;
 
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
+  };
+
+  constructor(private httpClient: HttpClient) {
+    this.getAllPeopleApi();
+    this.getDbDateApi();
   }
-  constructor(private httpClient: HttpClient) { }
 
-  public getPeople(url?: string){
-    this.httpClient.get(`${this.apiUrl}/people`).subscribe((res)=>{
-      this.allPeople.next(res);
-      console.log(this.allPeople);
-    });
-  };
+  private getAllPeopleApi(): void {
+    const allPeopleSubscription = this.httpClient.get<Person[]>(`${this.apiUrl}/people`).pipe(
+      retryWhen(errors => errors.pipe(
+        switchMap((error) => {
+            return of(error);
+        }),
+      )),
+      delay(5000)
+    ).subscribe(
+      (allPeople: Person[]) => {
+        this.allPeople = allPeople;
+        this.allPeopleSubject.next(this.allPeople);
+        allPeopleSubscription.unsubscribe();
+      }
+    );
+  }
 
-  public getTombById(id: string){
-    this.httpClient.get(`${this.apiUrl}/people?tombId=${id}`).subscribe((res)=>{
-      this.currentTomb.next(res);
-      console.log(res);
-    });
-  };
+  private getAllMenApi(): void {
+    const allMenSubscription = this.httpClient.get<Person[]>(`${this.apiUrl}/people?sex=M`).subscribe(
+      (allMen: Person[]) => {
+        this.allMen = allMen;
+        this.allMenSubject.next(this.allMen);
+        allMenSubscription.unsubscribe();
+      }
+    );
+  }
 
-  public getCurrentTomb(): Observable<any> {
+  private getAllWomenApi(): void {
+    const allWomenSubscription = this.httpClient.get<Person[]>(`${this.apiUrl}/people?sex=K`).subscribe(
+      (allWomen: Person[]) => {
+        this.allWomen = allWomen;
+        this.allWomenSubject.next(this.allWomen);
+        allWomenSubscription.unsubscribe();
+      }
+    );
+  }
+
+  private getDbDateApi(): void {
+    const dbDateSubscription = this.httpClient.get<DbDate[]>(`${this.apiUrl}/date`).subscribe(
+      (dbDate: DbDate[]) => {
+        this.dbDate = dbDate[0].modifiedDate;
+        this.dbDateSubject.next(this.dbDate);
+        dbDateSubscription.unsubscribe();
+      }
+    );
+  }
+
+  public getTombById(id: number): void {
+    const currentTomb = new Map<number, Person[]>();
+    const peopleInCurrentTomb = this.allPeople.filter((person: Person) => person.tombId === id);
+    currentTomb.set(id, peopleInCurrentTomb);
+    this.currentTomb.next(currentTomb);
+    console.log(currentTomb);
+  }
+
+  public getCurrentTomb(): Observable<Map<number, Person[]>> {
     return this.currentTomb.asObservable();
   }
 
-  public getMen(url?: string){
-    this.httpClient.get(`${this.apiUrl}/people?sex=M`).subscribe((res)=>{
-      this.allMen.next(res);
-    });
-  };
-
-  public getWomen(url?: string){
-    this.httpClient.get(`${this.apiUrl}/people?sex=K`).subscribe((res)=>{
-      this.allWomen.next(res);
-    });
-  };
-
-  public getAllMen(): Observable<any> {
-    return this.allMen.asObservable();
+  public getAllMen(): Observable<Person[]> {
+    return this.allMenSubject.asObservable();
   }
 
-  public getAllWomen(): Observable<any> {
-    return this.allWomen.asObservable();
+  public getAllWomen(): Observable<Person[]> {
+    return this.allWomenSubject.asObservable();
   }
 
-  public getAllPeople(): Observable<any> {
-    return this.allPeople.asObservable();
+  public getAllPeople(): Observable<Person[]> {
+    return this.allPeopleSubject.asObservable();
   }
 
-  getInfoAboutTomb(tombId: string) {
-    this.currentTombId.next(tombId);
+  getInfoAboutTomb(tombId: string): void {
     this.pictureFlag.next(this.checkIfPictureExist(tombId));
-    console.log(this.pictureFlag);
-    this.getTombById(tombId);
+    this.getTombById(parseInt(tombId));
   }
 
-  public getGraveCandle(): Observable<boolean> {
-    return this.graveCandleFlag.asObservable();
-  }
-
-  public setGraveCandle(status: boolean): void{
-    this.graveCandleFlag.next(status);
-  }
-
-  public getCurrentTombId(): Observable<any>{
-    console.log(this.currentTombId);
-    return this.currentTombId.asObservable();
-  }
-
-  checkIfPictureExist(tombId): boolean {
-    let result = false;
+  private checkIfPictureExist(tombId): boolean {
     console.log(tombId);
-    let pictures = ['121', '305', '303', '302']
-    for (let pictureId of pictures) {
+    const pictures = ['121', '305', '303', '302']
+    for (const pictureId of pictures) {
       if (pictureId === tombId) {
-        result = true;
+        return true;
       }
     }
-    return result;
+    return false;
   }
 
-  getPictureFlag(): Observable<boolean> {
+  public getPictureFlag(): Observable<boolean> {
     return this.pictureFlag.asObservable();
+  }
+
+  public getCurrentYear(): number {
+    const year = new Date().getFullYear().toString();
+    return this.allPeople.filter(people => people.deathDate.includes(year)).length;
+  }
+
+  public getDbDateSubject(): Observable<string> {
+    return this.dbDateSubject.asObservable();
+  }
+
+  public getDbDate(): string {
+    return this.dbDate;
   }
 }

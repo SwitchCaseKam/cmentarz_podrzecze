@@ -2,7 +2,7 @@
     <br>
 
     <div *ngIf='peopleCount > 0'>
-    <b>Posortowano alfabetycznie według nazwisk.</b> Stan na dzień 2.05.2020.<br><br>
+    <b>Posortowano alfabetycznie według nazwisk.</b> Stan na dzień {{dbDate}} <br><br>
         <table class="table">
             <thead class="thead-dark">
               <tr>
@@ -22,7 +22,7 @@
             </tbody>
         </table>
       </div>
-      <div *ngIf='peopleCount === -1'>
+      <div *ngIf='peopleCount === 0'>
         <br><div class="loader"></div>
         <br><div style="text-align:center">Trwa ładowanie spisu zmarłych ...</div>
       </div>
