@@ -9,8 +9,8 @@ import { MarkTombService } from '../mark-tomb.service';
 })
 export class MapaComponent implements OnInit {
 
-  private x = '-10%';
-  private y = '-10%';
+  public x = '-10%';
+  public y = '-10%';
 
   constructor(private dataService: DataService, private markTombService: MarkTombService) {}
 
