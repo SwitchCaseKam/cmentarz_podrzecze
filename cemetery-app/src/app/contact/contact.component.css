@@ -1,25 +1,20 @@
-.picture-element
-{
-    display: inline-block;
-    padding: 50px; 
 
-}
 
-.text-element
-{
-    padding: 40px;
-    font-family: "Calibri";
-    color: rgb(32, 42, 53);
-    text-align: justify;
-}
-.info-element
-{
-    padding: 30px;
-    font-family: "Calibri";
-    color: rgb(32, 42, 53);
-    background-color: rgb(255, 255, 255);
-    /* text-align: justify; */
-    border-left: 2px solid rgb(189, 172, 172);
-    text-align: center;
-    
+.container {
+  padding: 30px;
+  font-family: "Calibri";
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  border-style: solid;
+  border-width: 2px;
+  /* text-align: justify; */
+  /* border-style: solid;
+  border-width: 2px; */
+  /* box-shadow: 10px 10px 5px #888; */
+  background-color: rgb(58, 57, 52);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  margin: auto;
+  width: 50%;
+
 }

@@ -1,8 +1,9 @@
 .calendarCard {
-    background-color: rgb(248, 223, 84);
+    /* background-color: rgb(58, 57, 52); */
     font-family: "Calibri";
     padding: 0.5rem;
-    border: 1px dotted rgb(0, 0, 0);
+    /* border: 1px dotted rgb(0, 0, 0); */
+    /* color: white; */
 }
 
 .loader {
@@ -14,7 +15,7 @@
     animation: spin 2s linear infinite;
     margin: auto;
   }
-  
+
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

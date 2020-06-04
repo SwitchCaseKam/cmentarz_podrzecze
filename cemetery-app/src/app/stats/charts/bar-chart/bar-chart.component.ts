@@ -27,7 +27,7 @@ export class BarChartComponent implements OnInit {
     {
       backgroundColor: 'rgba(33, 18, 78, .5)',
       borderColor: 'rgba(0, 0, 0, .7)',
-      borderWidth: 2,
+      borderWidth: 2
     }
   ];
   ngOnInit() {

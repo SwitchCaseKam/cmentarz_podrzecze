@@ -26,6 +26,7 @@ export class AnniversaryComponent implements OnInit, OnDestroy {
         this.checkAnniversary();
       }
     );
+
   }
 
   public ngOnDestroy() {
@@ -55,4 +56,6 @@ export class AnniversaryComponent implements OnInit, OnDestroy {
       this.anniversaryPeopleCount = this.anniversaryPeople.length;
     });
   }
+
+
 }

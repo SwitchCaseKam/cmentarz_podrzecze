@@ -2,4 +2,13 @@
 /* body {
     background-color: #ffffff;
   } */
+  /* body { background-color: rgb(105, 94, 94) !important; } */
+  /* body {
+    background: url(./assets/img/home-1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+  } */
   @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
