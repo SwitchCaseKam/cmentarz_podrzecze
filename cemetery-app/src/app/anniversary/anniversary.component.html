@@ -22,8 +22,16 @@
           Niech odpoczywają w pokoju.<br>
           Amen.<br>
         </i>
-    </div>
-</div>
+    </div><br><br>
+
+    <ng-container *ngIf="!candleLighted">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)='lightCandle()'>Zapal znicz</button>
+    </ng-container>
+
+    <ng-container *ngIf="candleLighted">
+      <img src="https://66.media.tumblr.com/36353c142e4369af32acd81bfac457fc/tumblr_mvmozlfDzP1rhncyso1_400.gifv" alt="Smiley face" height="80" width="142">
+    </ng-container>
+  </div>
 
 <div *ngIf='anniversaryPeopleCount === -1'>
     <br><div class="loader"></div>

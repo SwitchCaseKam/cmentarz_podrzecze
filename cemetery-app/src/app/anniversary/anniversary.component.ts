@@ -15,10 +15,11 @@ export class AnniversaryComponent implements OnInit, OnDestroy {
   public anniversaryPeople: any = [];
   public anniversaryPeopleCount = -1;
   private peopleDataSubscription: Subscription;
+  private candleLighted = false;
 
   constructor(private dataService: DataService) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.todayDateAndMonth = this.getCurrentDate();
     this.peopleDataSubscription = this.dataService.getAllPeople().subscribe(
       (allPeople: Person[]) => {
@@ -29,7 +30,8 @@ export class AnniversaryComponent implements OnInit, OnDestroy {
 
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
+    this.candleLighted = false;
     this.peopleDataSubscription.unsubscribe();
   }
 
@@ -55,6 +57,10 @@ export class AnniversaryComponent implements OnInit, OnDestroy {
       }
       this.anniversaryPeopleCount = this.anniversaryPeople.length;
     });
+  }
+
+  public lightCandle(): void {
+    this.candleLighted = true;
   }
 
 
