@@ -30,7 +30,7 @@ export class PeopleTableComponent implements OnInit, OnDestroy {
   private getPeopleInfo(): void {
     this.peopleDataSubscription = this.dataService.getAllPeople().subscribe(
       (allPeople: Person[]) => {
-        this.people = allPeople;
+        this.people = allPeople.sort((a, b) => a.surname.localeCompare(b.surname, 'pl', { ignorePunctuation: true }));;
         this.peopleCount = allPeople.length;
       }
     );

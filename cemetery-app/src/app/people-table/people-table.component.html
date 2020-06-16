@@ -15,8 +15,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let person of people">
-                <td style="font-family: Calibri" scope="row">{{ person.id }}</td>
+              <tr *ngFor="let person of people; let i = index">
+                <td style="font-family: Calibri" scope="row">{{ i + 1 }}</td>
                 <th style="font-family: Calibri"><b>{{ person.surname }} {{ person.name }}</b></th>
                 <td style="font-family: Calibri" >{{ person.birthDate }}</td>
                 <td style="font-family: Calibri" >{{ person.deathDate }}</td>
