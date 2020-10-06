@@ -38,7 +38,8 @@ export class AnniversaryComponent implements OnInit, OnDestroy {
   private getCurrentDate(): string {
     let todayDate: string;
     const today = new Date();
-    const extra = today.getMonth().toString().length === 1 ? '0' : '';
+    console.log(today.getMonth().toString())
+    const extra = today.getMonth() < 9 ? '0' : '';
     todayDate = today.getDate() + '.' + extra + (today.getMonth() + 1);
     console.log('Today date: ' + todayDate);
     return todayDate;
