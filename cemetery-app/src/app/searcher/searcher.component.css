@@ -2,9 +2,22 @@
   min-width: 150px;
   max-width: 500px;
   width: 100%;
-  background-color: #ffffff;
 }
 
 .example-full-width {
   width: 100%;
 }
+@-webkit-keyframes autofill {
+  0%,100% {
+      color: #666;
+      background: transparent;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+

@@ -7,9 +7,11 @@
 <app-details></app-details>
 <app-footer></app-footer>
 </div>  -->
+<div [ngStyle]="styles" >
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+</div>
 
-<app-header></app-header>
-<router-outlet></router-outlet>
 <!-- <app-footer></app-footer> -->
 <!-- <cookie-law></cookie-law> -->
 
