@@ -16,7 +16,13 @@ export class AppComponent implements OnInit {
     '-moz-background-size': 'cover',
     '-o-background-size': 'cover',
     'background-size': 'cover',
-    'height': '100%'
+    /* Set rules to fill background */
+
+  /* Set up proportionate scaling */
+  'width': '100%',
+  'height': 'auto',
+
+
   }
 
   constructor(private dataService: DataService, private markTombService: MarkTombService) {}
