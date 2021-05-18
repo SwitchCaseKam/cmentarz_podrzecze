@@ -16,4 +16,4 @@ https://switchcasekam.github.io/cmentarz_podrzecze/
 # Informacje dodatkowe
 
   - Strona działa od września 2019 r.
-  - Link do strony znaduje się na stronie parafii Świniarsko (http://www.parswiniarsko.seva.pl/pl)
+  - Link do strony znaduje się na stronie parafii Świniarsko (http://www.parswiniarsko.seva.pl/)
