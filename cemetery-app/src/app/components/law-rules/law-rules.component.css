@@ -1,0 +1,9 @@
+.main-info {
+  padding: 2rem;
+  border: 2px solid red;
+}
+
+.card {
+  background-color: rgba(236, 235, 235, 0.6);
+  backdrop-filter: blur(2px);
+}

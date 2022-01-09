@@ -1,0 +1,8 @@
+.text-element {
+  padding: 5px;
+}
+
+.card {
+  background-color: rgba(236, 235, 235, 0.6);
+  backdrop-filter: blur(2px);
+}

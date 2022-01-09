@@ -1,0 +1,35 @@
+<div class='container'>
+  <br>
+  <ng-container *ngIf="allPeople; else noData">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class='info-content'>
+          <mat-card class='card'>
+            <mat-card-content>
+              <h3>
+                Tutaj znajdziesz mapę cmentarza wraz z możliwością wyszukiwania zmarłych.
+                Dane na temat zmarłych można zobaczyć na mapie, klikając na konkretny grób
+                lub wpisjąc imię i nazwisko zmarłego w wyszukiwarkę.<br><br>
+              </h3>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <br>
+      <div class="col-lg-6">
+        <div class='info-content'>
+          <app-searcher [allPeople]=allPeople></app-searcher>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br><br>
+    <ng-container *ngIf="dbDate">Stan na dzień: <b>{{dbDate}}</b></ng-container>
+    <app-map></app-map>
+  </ng-container>
+  <ng-template #noData>
+    <app-spinner></app-spinner>
+  </ng-template>
+  <br>
+</div>
+

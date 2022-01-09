@@ -1,19 +1,27 @@
-# Cmentarz Podrzecze
----
-Cmentarz Podrzecze to projekt nieoficjalnej strony cmentarza znajdującego się w miejscowości Podrzecze (woj. małopolskie)
+# Cemetery
 
-Strona pozwala: 
-  - wyświetlić mapę (plan) cmentarza
-  - znajdować groby zmarłych przy pomocy wyszukiwarki
-  - wyświetlać statystyki dotyczące liczby osób spoczywających na cmentarzu
-  - strona komunikuje się z bazą danych zmarłych poprzez REST API
-  - baza danych znajduje się pod adresem https://test-node-tomb-server.herokuapp.com/people, działa na serwerze heroku
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 
----
-# Strona dostępna pod adresem
-https://switchcasekam.github.io/cmentarz_podrzecze/
+## Development server
 
-# Informacje dodatkowe
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-  - Strona działa od września 2019 r.
-  - Link do strony znaduje się na stronie parafii Świniarsko (http://www.parswiniarsko.seva.pl/pl)
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

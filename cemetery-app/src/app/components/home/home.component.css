@@ -1,0 +1,109 @@
+
+.container {
+  position: relative;
+  color: black;
+
+}
+
+.main-text {
+  vertical-align: middle;
+  padding: 1.5rem;
+
+}
+
+.info-text {
+  vertical-align: middle;
+  padding: 1.5rem;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1; /* additionally, equal width */
+  
+  padding: 1em;
+  border: solid;
+}
+
+/*
+@keyframes main-text {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+} */
+
+.anniversaries {
+  background-color: thistle;
+  color: red;
+  padding: 1rem;
+}
+
+/*
+.container {
+  display: grid;
+}
+
+.content, .overlay {
+  grid-area: 1 / 1;
+} */
+
+
+
+.mat-display-1 {
+  padding-bottom: 2px;
+}
+
+.example-header-image {
+  background-image: url('https://img.icons8.com/emoji/48/000000/candle-emoji.png');
+  background-size: cover;
+}
+
+.card {
+  height:100%;
+  background-color: rgba(236, 235, 235, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.content-container {
+  height:100%;
+  min-height: 100%;
+}
+
+
+.contact-header-image {
+  background-image: url('https://lh3.googleusercontent.com/proxy/eVtt4UYGN_m5UnnC4iixY1369yGcUTjDBLbx1NDoI5wvXnxBmj8pQbzmY9BrcsDk6aO_5CYj4H1MGI7-NNt3s92fU3YiTan_gLwqY8CDtQ');
+  background-size: cover;
+}
+
+.home-picture {
+  vertical-align: middle;
+}
+
+.church-page-header-image {
+  background-image: url('https://www.rdn.pl/wp-content/uploads/2020/04/%C5%9Bwiniarsko_kosciol.jpg');
+  background-size: cover;
+}
+
+.page-visits {
+  text-align: center;
+}
+
+.info-content {
+  float: left;
+}
+
+.map-content {
+  text-align: center;
+}
+
+.a {
+  color: black;
+}

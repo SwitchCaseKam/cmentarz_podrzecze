@@ -1,0 +1,11 @@
+<div>
+  <h2><b>Liczba osób zmarłych w danym roku</b></h2>
+  <canvas baseChart
+    [datasets]='barChartData'
+    [labels]='barChartLabels'
+    [legend]='true'
+    [chartType]='barChartType'
+    [colors]='barChartColors'
+    (chartClick)='onClick($event)'
+  ></canvas>
+</div>

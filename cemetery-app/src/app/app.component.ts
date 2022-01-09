@@ -1,27 +1,25 @@
-import { AfterViewInit, Component, ElementRef, OnInit, } from '@angular/core';
-import { DataService } from './data.service';
-import { MarkTombService } from './mark-tomb.service';
+import { StatsService } from './services/stats.service';
+import { Component } from '@angular/core';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [DataService, MarkTombService]
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'cemetery-app';
+export class AppComponent {
+  title = 'cemetery';
   styles = {
-    'background': 'url(./assets/img/home-1.jpg) no-repeat center center fixed',
+    'background': 'url(https://c.pxhere.com/photos/46/b1/cross_faith_wooden_cross_christianity_jesus_church_catholicism_symbol-529148.jpg!d) no-repeat center center fixed',
+    '-webkit-background-size': 'cover',
+    '-moz-background-size': 'cover',
+    '-o-background-size': 'cover',
     'height': 'auto',
     'min-height': '100vh',
     'background-size': 'cover',
+    'width': '100%',
 	  'background-position': 'center'
   }
 
-  constructor(private dataService: DataService, private markTombService: MarkTombService) {}
-
-  ngOnInit(): void {
-
-
-  }
+  constructor(private dataService: DataService, private statsService: StatsService) {}
 }

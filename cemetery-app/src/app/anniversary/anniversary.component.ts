@@ -1,7 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { DataService } from '../data.service';
+import { DataService } from 'src/app/services/data.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Person } from '../models/person.model';
+import { TombMarkerService } from '../services/tomb-marker.service';
 import { Subscription } from 'rxjs';
-import { Person } from '../person.model';
+import { skip } from 'rxjs/operators';
 
 @Component({
   selector: 'app-anniversary',
@@ -10,54 +12,29 @@ import { Person } from '../person.model';
 })
 export class AnniversaryComponent implements OnInit, OnDestroy {
 
-  public allPeople: Person[];
-  public todayDateAndMonth: string;
-  public anniversaryPeople: any = [];
-  public anniversaryPeopleCount = -1;
-  private peopleDataSubscription: Subscription;
-  private candleLighted = false;
+  public anniversaryPeople: Person[] = [];
+  public numberOfAnniversaryPeople: number = -1;
+  private anniversarySubscription: Subscription;
+  public candleLighted = false;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private tombMarkerService: TombMarkerService) { }
 
   public ngOnInit(): void {
-    this.todayDateAndMonth = this.getCurrentDate();
-    this.peopleDataSubscription = this.dataService.getAllPeople().subscribe(
-      (allPeople: Person[]) => {
-        this.allPeople = allPeople;
-        this.checkAnniversary();
+    this.anniversarySubscription = this.dataService.getAnniversaryPeople().subscribe((anniversaryPeople: Person[]) => {
+      if (anniversaryPeople?.length >= 0) {
+        this.anniversaryPeople = anniversaryPeople;
+        this.numberOfAnniversaryPeople = this.anniversaryPeople?.length;
       }
-    );
-
+    })
   }
 
   public ngOnDestroy(): void {
     this.candleLighted = false;
-    this.peopleDataSubscription.unsubscribe();
+    this.anniversarySubscription?.unsubscribe()
   }
 
-  private getCurrentDate(): string {
-    let todayDate: string;
-    const today = new Date();
-    console.log(today.getMonth().toString())
-    const extra = today.getMonth() < 9 ? '0' : '';
-    todayDate = today.getDate() + '.' + extra + (today.getMonth() + 1);
-    console.log('Today date: ' + todayDate);
-    return todayDate;
-  }
-
-  private checkAnniversary(): void {
-    this.allPeople.forEach((person: Person) => {
-      const today = new Date();
-      const date = person.deathDate.split('.');
-      if (date.length === 3) {
-        if (date[0] + '.' + date[1] === this.todayDateAndMonth) {
-          const anniversaryCounter: number = today.getFullYear() - parseInt(date[2]);
-          person['anniversaryCounter'] = anniversaryCounter;
-          this.anniversaryPeople.push(person);
-        }
-      }
-      this.anniversaryPeopleCount = this.anniversaryPeople.length;
-    });
+  public onRowClick(tombId: number): void {
+    this.tombMarkerService.redirectToMapAndMarkTomb(tombId, 500);
   }
 
   public lightCandle(): void {

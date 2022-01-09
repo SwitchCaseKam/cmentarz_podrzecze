@@ -1,20 +1,22 @@
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { LawRulesComponent } from './components/law-rules/law-rules.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AnniversaryComponent } from './anniversary/anniversary.component';
+import { ListComponent } from './components/list/list.component';
+import { LocatorComponent } from './components/locator/locator.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { StatsComponent } from './stats/stats.component';
-import { HomeComponent } from './home/home.component';
-import { CemeteryLayoutComponent } from './cemetery-layout/cemetery-layout.component'
-import { ContactComponent } from './contact/contact.component';
-import { PeopleTableComponent } from './people-table/people-table.component';
-import { RulesComponent } from './rules/rules.component';
-import { GalleryComponent } from './gallery/gallery.component';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { StatsComponent } from './components/stats/stats.component';
 
 const routes: Routes = [
-  { path: 'map', component: CemeteryLayoutComponent },
-  { path: 'stats', component: StatsComponent }, 
-  { path: 'contact', component: ContactComponent }, 
-  { path: 'list', component: PeopleTableComponent }, 
-  { path: 'rules', component: RulesComponent }, 
-  { path: 'gallery', component: GalleryComponent},
+  { path: 'mapa', component: LocatorComponent },
+  { path: 'statystyki', component: StatsComponent },
+  { path: 'lista', component: ListComponent },
+  { path: 'rocznice', component: AnniversaryComponent },
+  { path: 'galeria', component: GalleryComponent },
+  { path: 'kontakt', component: ContactComponent },
+  { path: 'informacje', component: LawRulesComponent },
   { path: '**', component: HomeComponent}
 ]
 
@@ -23,4 +25,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [CemeteryLayoutComponent, StatsComponent, HomeComponent, ContactComponent]
+export const routingComponents = [
+  LocatorComponent, StatsComponent, HomeComponent, AnniversaryComponent,
+  ContactComponent, LawRulesComponent, GalleryComponent
+]

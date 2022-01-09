@@ -1,0 +1,11 @@
+<div class='container'>
+  <br>
+  <ng-container *ngIf="allPeople; else noData">
+    <h3>Lista zmarłych została uporządkowana alfabetycznie:</h3>
+    <ng-container *ngIf="dbDate">Stan na dzień: <b>{{dbDate}}</b></ng-container>
+    <app-people-table [allPeople]=allPeople></app-people-table>
+  </ng-container>
+  <ng-template #noData>
+    <app-spinner></app-spinner>
+  </ng-template>
+</div>
