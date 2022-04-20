@@ -24,7 +24,6 @@
     "@angular/router": "~11.2.3",
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
     "@ngmodule/material-carousel": "^0.6.0",
-    "angular-gallery": "^1.0.2",
     "chart.js": "^2.9.4",
     "list-files-in-dir": "^0.1.5",
     "ng-image-slider": "^2.6.4",
