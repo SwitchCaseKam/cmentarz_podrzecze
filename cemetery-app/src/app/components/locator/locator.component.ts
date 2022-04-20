@@ -2,6 +2,7 @@ import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/models/person.model';
 import { DataService } from 'src/app/services/data.service';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-locator',
@@ -18,12 +19,13 @@ export class LocatorComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   public ngOnInit(): void {
-    this.allPeopleSubscription = this.dataService.getAllPeopleSubject().subscribe((allPeople: Person[]) => {
-      if (allPeople?.length > 0) { this.allPeople = allPeople;}
-    });
-    this.dbDateSubscription = this.dataService.getDatabaseDateSubject().subscribe((dbDate: string) => {
-      if (dbDate !== '') { this.dbDate = dbDate;}
-    });
+    this.allPeopleSubscription = this.dataService.getAllPeopleSubject()
+      .pipe(filter((allPeople: Person[]) => allPeople?.length > 0))
+        .subscribe((allPeople: Person[]) => this.allPeople = allPeople);
+    
+    this.dbDateSubscription = this.dataService.getDatabaseDateSubject()
+      .pipe(filter((dbDate: string) => dbDate !== ''))
+        .subscribe((dbDate: string) => this.dbDate = dbDate);
   }
 
   public ngOnDestroy(): void {
