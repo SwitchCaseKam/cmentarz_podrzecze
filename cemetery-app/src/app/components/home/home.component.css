@@ -25,4 +25,11 @@
   height: 100%;
   background-color: rgba(236, 235, 235, 0.6);
   backdrop-filter: blur(2px);
+  animation-name: fade-in;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
