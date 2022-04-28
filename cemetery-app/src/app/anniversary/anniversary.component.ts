@@ -3,7 +3,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Person } from '../models/person.model';
 import { TombMarkerService } from '../services/tomb-marker.service';
 import { Subscription } from 'rxjs';
-import { skip } from 'rxjs/operators';
 
 @Component({
   selector: 'app-anniversary',
@@ -25,7 +24,7 @@ export class AnniversaryComponent implements OnInit, OnDestroy {
         this.anniversaryPeople = anniversaryPeople;
         this.numberOfAnniversaryPeople = this.anniversaryPeople?.length;
       }
-    })
+    });
   }
 
   public ngOnDestroy(): void {
@@ -40,6 +39,4 @@ export class AnniversaryComponent implements OnInit, OnDestroy {
   public lightCandle(): void {
     this.candleLighted = true;
   }
-
-
 }

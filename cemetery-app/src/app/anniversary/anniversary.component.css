@@ -1,21 +1,6 @@
-.calendar-card {
-  text-align: center;
-  align-content: center;
-}
-
-.example-card {
-  max-width: 400px;
-}
-
-.anniversary-card-header-image {
+#anniversary-card-header-image {
   background-image: url('https://img.icons8.com/emoji/48/000000/candle-emoji.png');
   background-size: cover;
-}
-
-.anniversary-card {
-  width: 10rem;
-  border: black solid 1px;
-  text-align: center;
 }
 
 .card {
@@ -25,12 +10,21 @@
   backdrop-filter: blur(2px);
 }
 
-.container {
-  height: 100%;
+.anniversary-item {
+  display: grid;
+  grid-template-columns: 25% 25% ;
+  justify-items: center;
+  justify-content: center;
+  background-color: rgb(194, 191, 191, 0.6);
+  padding: 10px;
+  box-shadow: 0 30px 40px rgba(0,0,0,.2);
 }
 
-#single-anniversary {
-  background-color: rgb(194, 191, 191);
-  width: 50%;
-  line-height: 1.2;
+.anniversary-item:hover {
+  background-color: rgb(122, 131, 204);
+  border: 1px solid #dfdfdf;
+}
+
+.anniversary-item:nth-child(2n) {
+  background-color: rgba(168, 164, 164, 0.5);
 }
