@@ -12,16 +12,16 @@
       </mat-card-header>
       <mat-card-content>
         <div id="anniversary-grid">
-          <div *ngFor="let person of anniversaryPeople">
+          <ng-container *ngFor="let person of anniversaryPeople">
             <div class="anniversary-item" (click)="onRowClick(person.tombId, person.id)">
               <div><img src="assets/icons/tomb-icon.png"></div>
-              <div>
+              <div class="person-info">
                 <i>Ś.P.</i><br>
                 <b>{{ person.name }} {{ person.surname }}</b><br>
                 {{ person.anniversaryCounter }}. rocznica
               </div>
             </div>
-          </div>
+          </ng-container>
         </div>
         <br>
         <i>

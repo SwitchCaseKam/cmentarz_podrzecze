@@ -1,27 +1,24 @@
-.loader {
-  border: 0.8rem solid #ffffff; /* Light grey */
-  border-top: 0.8rem solid #292d2e; /* Blue */
-  border-radius: 50%;
-  width: 5.5rem;
-  height: 5.5rem;
-  animation: spin 2s linear infinite;
-  margin: auto;
-}
-  
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-  
 #map-locator-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
   padding-top: 15px;
+  animation-name: fade-in;
+  animation-duration: 1s;
+}
+
+#map-container {
+  animation-name: fade-in;
+  animation-duration: 0.5s;
 }
 
 @media (max-width: 800px) {
   #map-locator-grid-container {
     grid-template-columns: 1fr;
   }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }

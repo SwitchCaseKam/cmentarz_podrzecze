@@ -5,7 +5,17 @@
   z-index: 99;
 }
 
+.nav-item {
+  animation-name: fade-in;
+  animation-duration: 3s;
+}
+
 .navbar-toggler{
   background-color: #f5f5f5;
   top:0;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }

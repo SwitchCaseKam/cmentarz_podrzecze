@@ -15,7 +15,9 @@
     </div>
     <br>
     <ng-container *ngIf="dbDate">Stan na dzień: <b>{{dbDate}}</b></ng-container>
-    <app-map></app-map>
+    <div id="map-container">
+      <app-map></app-map>
+    </div>
   </ng-container>
   <ng-template #noData>
     <app-spinner></app-spinner>
