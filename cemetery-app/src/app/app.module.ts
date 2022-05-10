@@ -15,7 +15,7 @@ import { LawRulesComponent } from './components/law-rules/law-rules.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { MatCardModule } from '@angular/material/card';
 import { HeaderComponent } from './components/common/header/header.component';
-// import { CommonComponentsModule } from './common-components/common-components.module';
+import { CommonComponentsModule } from './common-components/common-components.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { HeaderComponent } from './components/common/header/header.component';
     NgImageSliderModule,
     MatCardModule,
     MatDialogModule,
-    // CommonComponentsModule
+    CommonComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -14,7 +14,7 @@ import { CommonComponentsModule } from '../common-components/common-components.m
   imports: [
     CommonModule,
     ListRoutingModule,
-    // CommonComponentsModule
+    CommonComponentsModule
   ]
 })
 export class ListModule { }

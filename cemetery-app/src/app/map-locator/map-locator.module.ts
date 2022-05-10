@@ -34,7 +34,7 @@ import { CommonComponentsModule } from '../common-components/common-components.m
     MatInputModule,
     MatAutocompleteModule,
     NgImageSliderModule,
-    // CommonComponentsModule
+    CommonComponentsModule
   ]
 })
 export class MapLocatorModule { }
