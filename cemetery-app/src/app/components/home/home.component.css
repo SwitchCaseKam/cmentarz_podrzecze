@@ -27,7 +27,7 @@
   background-color: rgba(236, 235, 235, 0.9);
   backdrop-filter: blur(2px);
   animation-name: fade-in;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 @keyframes fade-in {

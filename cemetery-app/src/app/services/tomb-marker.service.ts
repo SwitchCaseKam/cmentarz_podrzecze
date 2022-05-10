@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
-import { DetailsComponent } from '../components/details/details.component';
+import { DetailsComponent } from '../map-locator/details/details.component';
 
 @Injectable({
   providedIn: 'root'

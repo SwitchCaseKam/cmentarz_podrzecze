@@ -1,3 +1,7 @@
+#main-spinnder-box {
+  padding: 10px;
+}
+
 .loader {
   border: 0.8rem solid #ffffff; /* Light grey */
   border-top: 0.8rem solid #292d2e; /* Blue */

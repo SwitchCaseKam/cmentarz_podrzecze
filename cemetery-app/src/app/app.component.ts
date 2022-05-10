@@ -10,8 +10,8 @@ import { DataService } from './services/data.service';
 export class AppComponent {
   title = 'cemetery';
   styles = {
-    // 'background': 'url("assets/img/home-wide.jpg") no-repeat center center fixed',
-    'background': 'url(https://c.pxhere.com/photos/46/b1/cross_faith_wooden_cross_christianity_jesus_church_catholicism_symbol-529148.jpg!d) no-repeat center center fixed',
+    'background': 'url("assets/img/home-wide.jpg") no-repeat center center fixed',
+    // 'background': 'url(https://c.pxhere.com/photos/46/b1/cross_faith_wooden_cross_christianity_jesus_church_catholicism_symbol-529148.jpg!d) no-repeat center center fixed',
     '-webkit-background-size': 'cover',
     '-moz-background-size': 'cover',
     '-o-background-size': 'cover',
@@ -19,7 +19,8 @@ export class AppComponent {
     'min-height': '100vh',
     'background-size': 'cover',
     'width': '100%',
-	  'background-position': 'center'
+	  'background-position': 'center',
+    // 'filter': 'grayscale(100%)'
   }
 
   constructor(private dataService: DataService, private statsService: StatsService) {}

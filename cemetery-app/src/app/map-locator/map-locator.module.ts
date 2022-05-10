@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { CommonComponentsModule } from '../common-components/common-components.module';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
     MapComponent,
     SearcherComponent,
     DetailsComponent,
-    MapLocatorComponent
+    MapLocatorComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +34,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
     MatInputModule,
     MatAutocompleteModule,
     NgImageSliderModule,
+    // CommonComponentsModule
   ]
 })
 export class MapLocatorModule { }
