@@ -1,14 +1,15 @@
 <div class='container'>
-    <br>
-    <ng-container *ngIf="allPeople; else noData">
-      <h3>Lista zmarłych została uporządkowana alfabetycznie:</h3>
-      <ng-container *ngIf="dbDate">Stan na dzień: <b>{{dbDate}}</b></ng-container>
-      <app-people-table [allPeople]=allPeople></app-people-table>
-    </ng-container>
-    <ng-template #noData>
-      <app-spinner></app-spinner>
-    </ng-template>
-    <br>
+  <ng-container *ngIf="allPeople; else noData">
+    <div id="people-list-box">
+        Lista zmarłych została uporządkowana alfabetycznie.<br>
+        Kliknięcie na dany wiersz w tabeli przekierowuje na mapę cmentarza z zaznaczonym grobem w którym spoczywa zmarły.<br>
+        <ng-container *ngIf="dbDate">Stan na dzień: <b>{{dbDate}}</b></ng-container>
+    </div>
+    <app-people-table [allPeople]=allPeople></app-people-table>
+  </ng-container>
+  <ng-template #noData>
+    <app-spinner></app-spinner>
+  </ng-template>
 </div>
 
   

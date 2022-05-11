@@ -23,17 +23,18 @@ export class SearcherComponent implements OnInit, OnDestroy {
   private searchTombId: string;
 
   constructor(
-   public dialog: MatDialog,
-   private formBuilder: FormBuilder,
-   private tombMarkerService: TombMarkerService) { }
+    public dialog: MatDialog,
+    private formBuilder: FormBuilder,
+    private tombMarkerService: TombMarkerService
+  ) { }
 
   public ngOnInit(): void {
     this.preparePeopleToSearch();
     this.searchField = this.createSearchField();
     this.filteredPeopleSearchOptions = this.searchField.get('search').valueChanges.pipe(
-        startWith(''),
-        map(value => this.filterPeople(value))
-      );
+      startWith(''),
+      map(value => this.filterPeople(value))
+    );
   }
 
   public ngOnDestroy(): void {

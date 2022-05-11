@@ -13,7 +13,7 @@ export class ListComponent implements OnInit, OnDestroy {
 
   public allPeople: Person[];
   public dbDate: string;
-  private dataSubscription: Subscription;
+  private dataSubscription: Subscription = new Subscription();
 
   constructor(private dataService: DataService) { }
 
@@ -31,8 +31,7 @@ export class ListComponent implements OnInit, OnDestroy {
       tap((people: Person[]) => {
         this.allPeople = people.sort((a, b) => a.surname.localeCompare(b.surname, 'pl', { ignorePunctuation: true }));
       }),
-      switchMap(() => this.dataService.getDatabaseDateSubject())
-    ).pipe(
+      switchMap(() => this.dataService.getDatabaseDateSubject()),
       filter((dbDate: string) => dbDate !== '')
     ).subscribe((dbDate: string) => this.dbDate = dbDate);
   }

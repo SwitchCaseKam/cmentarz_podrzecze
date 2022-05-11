@@ -13,7 +13,7 @@ export class MapLocatorComponent implements OnInit {
 
   public allPeople: Person[];
   public dbDate: string;
-  private dataSubscription: Subscription;
+  private dataSubscription: Subscription = new Subscription();
 
   constructor(private dataService: DataService) { }
 

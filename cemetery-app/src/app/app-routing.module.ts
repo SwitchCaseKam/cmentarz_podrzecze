@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'mapa', loadChildren: () => import('./map-locator/map-locator.module').then(m => m.MapLocatorModule) },
   { path: 'statystyki', loadChildren: () => import('./stats/stats.module').then(m => m.StatsModule) },
   { path: 'lista', loadChildren: () => import('./list/list.module').then(m => m.ListModule) },
-  { path: 'kontakt', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
+  { path: 'kontakt', component: ContactComponent },
   { path: '**', component: HomeComponent}
 ]
 

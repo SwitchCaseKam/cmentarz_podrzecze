@@ -1,25 +1,21 @@
-<div>
-  <mat-card class="container">
-    <mat-card-content>
-      <div id="searcher-grid-container">
-        <div>
-          <h2>Wyszukaj grób: </h2>
-          <form [formGroup]="searchField">
-            <mat-form-field id="search-field">
-              <input type="string" placeholder="Wpisz imię i nazwisko zmarłego i kliknij Szukaj" matInput formControlName="search" [matAutocomplete]="auto" (keydown)="handleSearchEvent($event)">
-              <mat-autocomplete #auto="matAutocomplete" (optionSelected)='getChosenPerson($event.option.value)'>
-                <mat-option *ngFor="let person of filteredPeopleSearchOptions | async" [value]="person">
-                  {{person}}
-                </mat-option>
-              </mat-autocomplete>
-            </mat-form-field>
-          </form>
-          <button mat-button class="btn btn-primary" (click)="getTombInfo()">Szukaj</button>
-        </div>
-        <div id="search-icon">
-          <img src="assets/icons/location-pin.png">
-        </div>
-      </div>
-    </mat-card-content>    
-  </mat-card>
+<div class="container">
+  <div id="searcher-grid-container">
+    <div>
+      Wyszukaj zmarłego:
+      <form [formGroup]="searchField">
+        <mat-form-field id="search-field">
+          <input type="string" placeholder="Wpisz imię i nazwisko zmarłego i kliknij Szukaj" matInput formControlName="search" [matAutocomplete]="auto" (keydown)="handleSearchEvent($event)">
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)='getChosenPerson($event.option.value)'>
+            <mat-option *ngFor="let person of filteredPeopleSearchOptions | async" [value]="person">
+              {{person}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+    <div id="search-icon">
+      <img src="assets/icons/location-pin.png">
+    </div>
+    <button mat-button class="btn btn-secondary" (click)="getTombInfo()">Szukaj</button>
+  </div>
 </div>

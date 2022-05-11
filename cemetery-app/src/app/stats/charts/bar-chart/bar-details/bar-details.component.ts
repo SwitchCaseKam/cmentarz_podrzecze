@@ -17,8 +17,7 @@ export class BarDetailsComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  public onRowClick(tombId: number, personId: number): void {
+  public onRowClick(tombId: number): void {
     this.tombMarkerService.redirectToMapAndMarkTomb(tombId, 500);
-
   }
 }

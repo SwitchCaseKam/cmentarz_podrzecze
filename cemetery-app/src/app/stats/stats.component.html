@@ -1,32 +1,30 @@
 <div class='container'>
-  <br>
-  <ng-container *ngIf="sexesStats; else noData">
-    <mat-card class='card'>
-      <mat-card-content>
-        
-          <app-general-info
-            numberOfAllMen={{sexesStats.numberOfAllMen}}
-            numberOfAllWomen={{sexesStats.numberOfAllWomen}}
-          ></app-general-info>
-          <br><br>
-          <app-bar-chart
-            [chartData]="deathsByYear.numberOfDeaths"
-            [barChartLabels]="deathsByYear.years"
-            options="chartOptions">
-          ></app-bar-chart>
-          <br><br>
-          <app-pie-chart
-            numberOfAllMen={{sexesStats.numberOfAllMen}}
-            numberOfAllWomen={{sexesStats.numberOfAllWomen}}>
-          ></app-pie-chart>
-  
-      </mat-card-content>
-    </mat-card>    
-  </ng-container>
-
+  <div id="stats-flex-container" *ngIf="sexesStats; else noData">
+    <div id="general-stats-box" class="stats-item-box">
+      <app-general-info
+        numberOfAllMen={{sexesStats.numberOfAllMen}}
+        numberOfAllWomen={{sexesStats.numberOfAllWomen}}
+      ></app-general-info>
+      <div id="charts-icon">
+        <img src="assets/icons/charts.png">
+      </div>
+    </div>
+    <div class="stats-item-box">
+      <app-bar-chart
+        [chartData]="deathsByYear.numberOfDeaths"
+        [barChartLabels]="deathsByYear.years"
+        options="chartOptions"
+      ></app-bar-chart>
+    </div>
+    <div class="stats-item-box">
+      <app-pie-chart
+        numberOfAllMen={{sexesStats.numberOfAllMen}}
+        numberOfAllWomen={{sexesStats.numberOfAllWomen}}
+      ></app-pie-chart>
+    </div>
+  </div>
   <ng-template #noData>
     <app-spinner></app-spinner>
   </ng-template>
-  <br><br>
 </div>
 

@@ -1,12 +1,17 @@
-.table-hover tr:hover {
-  background:#6dc2e4;
+#people-table-list {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  animation-name: fade-in;
+  animation-duration: 1s;
 }
 
-.table-row{
-  cursor:pointer;
+.table-hover tr:hover {
+  background:#379bc2;
+  color: white;
 }
 
 .table {
   background-color: rgba(236, 235, 235, 0.6);
   backdrop-filter: blur(2px);
+  border: 1px solid rgb(83, 82, 82);
 }

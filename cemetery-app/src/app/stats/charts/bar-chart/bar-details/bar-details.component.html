@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let person of people" (click)="onRowClick(person.tombId, person.id)">
+        <tr *ngFor="let person of people" (click)="onRowClick(person.tombId)">
           <td scope="row"><b>{{ person.name }} {{ person.surname }}</b></td>
           <td>{{ person.birthDate }}</td>
           <td>{{ person.deathDate }}</td>

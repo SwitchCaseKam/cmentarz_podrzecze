@@ -2,11 +2,14 @@
   display: grid;
   grid-template-columns: 65% 35%;
   align-content: center;
+  gap: 15px;
+  padding: 10px;
 }
 
 #search-icon {
-  text-align: center;
-  align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #search-field {
@@ -14,6 +17,6 @@
 }
 
 .container {
-  background-color: rgba(236, 235, 235, 0.9);
+  background-color: rgba(236, 235, 235, 0.6);
   backdrop-filter: blur(2px);
 }
