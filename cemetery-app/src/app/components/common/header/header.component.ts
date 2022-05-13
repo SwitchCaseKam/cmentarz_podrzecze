@@ -10,6 +10,16 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const hamburgerMenuButton = document.querySelector('.hamburger-menu-button');
+    const menuItems = document.querySelector('ul');
+
+    hamburgerMenuButton.addEventListener('click', () => {
+      menuItems.classList.toggle('active');
+    });
+
+    menuItems.addEventListener('click', () => {
+      menuItems.classList.toggle('active');
+    });
   }
 
 }

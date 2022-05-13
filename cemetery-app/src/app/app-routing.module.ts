@@ -7,12 +7,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: 'rocznice', component: AnniversaryComponent },
-  { path: 'galeria', component: GalleryComponent },
-  { path: 'informacje', component: LawRulesComponent },
   { path: 'mapa', loadChildren: () => import('./map-locator/map-locator.module').then(m => m.MapLocatorModule) },
   { path: 'statystyki', loadChildren: () => import('./stats/stats.module').then(m => m.StatsModule) },
   { path: 'lista', loadChildren: () => import('./list/list.module').then(m => m.ListModule) },
+  { path: 'galeria', component: GalleryComponent },
+  { path: 'informacje', component: LawRulesComponent },
   { path: 'kontakt', component: ContactComponent },
   { path: '**', component: HomeComponent}
 ]

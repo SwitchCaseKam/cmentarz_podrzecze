@@ -19,6 +19,7 @@
   background-color: rgb(194, 191, 191, 0.6);
   padding: 10px;
   box-shadow: 0 30px 40px rgba(0,0,0,.2);
+  cursor: pointer;
 }
 
 .anniversary-item:nth-child(2n) {
