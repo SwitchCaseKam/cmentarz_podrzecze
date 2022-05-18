@@ -8,6 +8,8 @@
 #general-stats-box {
   display: flex;
   justify-content: space-evenly;
+  animation-duration: 1s;
+  animation-name: fade-in;
 }
 
 #charts-icon {
@@ -21,4 +23,12 @@
   text-align: center;
   background-color: rgba(236, 235, 235, 0.6);
   backdrop-filter: blur(2px);
+  animation-duration: 1s;
+  animation-name: fade-in;
+}
+
+@media (max-width: 800px) {
+  #general-stats-box {
+    flex-direction: column;
+  }
 }
