@@ -47,5 +47,4 @@ export class BarChartComponent implements OnInit, OnDestroy {
       dialogRef.afterClosed().subscribe();
     }
   }
-
 }

@@ -2,24 +2,39 @@
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-.title {
-  padding-top: 10px;
-}
 
-nav {
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: rgb(163, 157, 157);
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.title-icon {
+  background-image: url('https://img.icons8.com/emoji/48/000000/candle-emoji.png');
+}
+
+nav {
+  background-color: rgb(32, 29, 32);
   position: sticky;
-  height: 3.5em;
   top: 0;
   z-index: 1;
   width: 100%;
-  padding-left: 50px;
-  padding-right: 50px;
 }
+
+/* .title:before {
+  content: "";
+  background: url(https://img.icons8.com/emoji/48/000000/candle-emoji.png);
+  width: 48px;
+  height: 48px;
+  float: left;
+} */
 
 ul {
   list-style-type: none;
@@ -29,9 +44,14 @@ ul {
   align-items: center;
   width: 55%;
   transition: .3s ease-in-out;
-  padding-top: 25px;
+  padding-top: 15px;
 }
 
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 li:hover {
   transform: scale(1.2);
   font-weight: bold;
@@ -40,13 +60,13 @@ li:hover {
 
 a {
   text-decoration: none;
-  color: black;
+  color: rgb(219, 215, 215);
 }
 
 .horizontal-bar {
   width: 3em;
   height: .2em;
-  background-color: black;
+  background-color: white;
   margin: .3em;
 }
 
@@ -85,6 +105,9 @@ a {
 
   li:hover {
     background-color: rgb(80, 80, 226);
-    color: white;
+  }
+
+  #navbar-photo {
+    width: 100%;
   }
 }

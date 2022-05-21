@@ -6,7 +6,7 @@
 .card {
   height: 100%;
   text-align: center;
-  background-color: rgba(236, 235, 235, 0.9);
+  /* background-color: rgba(236, 235, 235, 0.9); */
   animation-name: fade-in;
   animation-duration: 2s;
 }
@@ -18,8 +18,8 @@
   justify-content: center;
   background-color: rgb(194, 191, 191, 0.6);
   padding: 10px;
-  box-shadow: 0 30px 40px rgba(0,0,0,.2);
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .anniversary-item:nth-child(2n) {
@@ -43,6 +43,18 @@
 
 .card {
   background-color: rgba(236, 235, 235, 0.9);
+}
+
+.anniversary-container {
+  text-align: center;
+  animation-name: fade-in;
+  animation-duration: 2s;
+}
+
+.loading-data-photo {
+  background-image: url('https://polskapogodzinach.pl/wp-content/uploads/2015/11/Krakow-Rakowicki-Polska-8532.jpg');
+  background-size: cover;
+  height: 500px;
 }
 
 

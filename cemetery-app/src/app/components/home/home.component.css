@@ -6,11 +6,6 @@
   padding-top: 15px;
 }
 
-@media (max-width: 800px) {
-  #grid-container {
-    grid-template-columns: 1fr;
-  }
-}
 
 #info-content-header-image {
   background-image: url('https://img.icons8.com/emoji/48/000000/candle-emoji.png');
@@ -18,7 +13,6 @@
 }
 
 #church-page-header-image {
-  background-image: url('https://www.rdn.pl/wp-content/uploads/2020/04/%C5%9Bwiniarsko_kosciol.jpg');
   background-size: cover;
 }
 
@@ -28,4 +22,87 @@
   backdrop-filter: blur(2px);
   animation-name: fade-in;
   animation-duration: 1s;
+}
+
+
+.grid-main-container {
+  font-family: "Oxygen", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 100px;
+  padding-top: 15px;
+}
+
+.church-info {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* background-image: url('http://www.parswiniarsko.seva.pl/public/img/slider-top/slidery2022e.jpg'); */
+  background-image: url('https://s3-eu-west-1.amazonaws.com/mata-in-the-cloud/wizytowka%2F79514927161402d7e42849946de029dd.jpg');
+  background-size: cover;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  height: 250px;
+}
+
+.church-info:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+  color: black;
+}
+
+.cemetery-map-info {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+
+
+#hyperlink-description {
+  text-align: center;
+  color:black;
+}
+
+.page-visit-counter {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hyperlink-text {
+  color: wheat;
+  z-index: 1;
+}
+
+.main-page-text {
+  padding: 20px;
+}
+
+@media (max-width: 800px) {
+  .grid-main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .church-info {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .cemetery-map-info {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
 }

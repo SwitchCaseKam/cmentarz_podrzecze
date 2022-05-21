@@ -23,6 +23,9 @@ export class DataService {
   private anniversaryPeopleSubject = new Subject<Person[]>();
 
   constructor(private dataApiService: DataApiService) {
+  }
+
+  public getDataFromServer(): void {
     this.getAllPeople();
     this.getDatabaseDate();
   }
@@ -105,6 +108,7 @@ export class DataService {
     const today = new Date();
     const extra = today.getMonth() < 9 ? '0' : '';
     todayDate = today.getDate() + '.' + extra + (today.getMonth() + 1);
+    todayDate = "3.05";
     return todayDate;
   }
 }

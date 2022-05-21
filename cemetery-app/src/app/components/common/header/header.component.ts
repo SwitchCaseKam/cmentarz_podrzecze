@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.dataService.getDataFromServer();
+    this.handleHamburgerMenu();
+  }
+
+
+  private handleHamburgerMenu(): void {
     const hamburgerMenuButton = document.querySelector('.hamburger-menu-button');
     const menuItems = document.querySelector('ul');
 
@@ -21,5 +28,4 @@ export class HeaderComponent implements OnInit {
       menuItems.classList.toggle('active');
     });
   }
-
 }

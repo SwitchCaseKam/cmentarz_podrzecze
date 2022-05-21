@@ -1,16 +1,15 @@
-<mat-card class='card'>
+<div class="anniversary-container">
  <div *ngIf='numberOfAnniversaryPeople === -1'>
-    <app-spinner spinnerText="Trwa sprawdzanie dzisiejszych rocznic "></app-spinner>
+    <!-- <app-spinner spinnerText="Trwa sprawdzanie dzisiejszych rocznic "></app-spinner> -->
+    <div class="loading-data-photo">x</div>
+    Trwa sprawdzanie dzisiejszych rocznic...
   </div>
   <ng-container *ngIf='numberOfAnniversaryPeople >= 0'>
     <ng-container *ngIf='numberOfAnniversaryPeople > 0'>
-      <mat-card-header>
-        <div mat-card-avatar id="anniversary-card-header-image"></div>
-        <mat-card-title>
+
           <h1>Dzisiejsze rocznice śmierci</h1>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
+
+
         <div id="anniversary-grid">
           <ng-container *ngFor="let person of anniversaryPeople">
             <div class="anniversary-item" (click)="onRowClick(person.tombId, person.id)">
@@ -30,11 +29,11 @@
           Niech odpoczywają w pokoju.<br>
           Amen.<br>
         </i>
-      </mat-card-content>
+
     </ng-container>
     <ng-container *ngIf='numberOfAnniversaryPeople === 0'>
-      <img mat-card-image src="assets/img/candles.jpg">
-      <mat-card-content>
+      <!-- <img mat-card-image src="assets/img/candles.jpg"> -->
+      
         <br>Brak rocznic w dniu dzisiejszym.<br>
           Módlmy się zatem za wszystkich zmarłych.<br>
         <br>
@@ -44,8 +43,9 @@
           Niech odpoczywają w pokoju.<br>
           Amen.<br><br>
         </i>
-      </mat-card-content>
+
     </ng-container>
+    <br>
     <ng-container *ngIf="!candleLighted">
       <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)='lightCandle()'>Zapal znicz</button>
     </ng-container>
@@ -53,4 +53,4 @@
       <img src="https://66.media.tumblr.com/36353c142e4369af32acd81bfac457fc/tumblr_mvmozlfDzP1rhncyso1_400.gifv" alt="Smiley face" height="80" width="142">
     </ng-container>
   </ng-container>
-</mat-card>
+</div>
