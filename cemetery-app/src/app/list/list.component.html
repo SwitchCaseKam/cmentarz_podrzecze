@@ -1,5 +1,6 @@
 <div class='container'>
   <ng-container *ngIf="allPeople; else noData">
+    <h1 class="title">Lista zmiarłych</h1>
     <div id="people-list-box">
         Lista zmarłych została uporządkowana alfabetycznie.<br>
         Kliknięcie na dany wiersz w tabeli przekierowuje na mapę cmentarza z zaznaczonym grobem w którym spoczywa zmarły.<br>
@@ -8,7 +9,9 @@
     <app-people-table [allPeople]=allPeople></app-people-table>
   </ng-container>
   <ng-template #noData>
-    <app-spinner></app-spinner>
+    <div class="no-data-container">
+      <app-spinner></app-spinner>
+    </div>
   </ng-template>
 </div>
 

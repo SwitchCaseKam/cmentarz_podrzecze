@@ -4,9 +4,10 @@
 }
 
 .footer {
+    position: static;
     background-color: rgb(32, 29, 32);
-    padding: 10px;
+    padding: 1em;
     bottom: 0;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 2em;
 }

@@ -1,5 +1,9 @@
 #text-info-box {
-  padding: 5px;
-  background-color: rgba(236, 235, 235, 0.6);
-  backdrop-filter: blur(2px);
+  padding-top: 1em;
+  animation-name: fade-in;
+  animation-duration: 1s;
+}
+
+.title {
+  margin-top: 1em;
 }

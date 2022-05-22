@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit {
     this.handleHamburgerMenu();
   }
 
-
   private handleHamburgerMenu(): void {
     const hamburgerMenuButton = document.querySelector('.hamburger-menu-button');
     const menuItems = document.querySelector('ul');

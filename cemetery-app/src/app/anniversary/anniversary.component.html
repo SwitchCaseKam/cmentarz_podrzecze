@@ -1,56 +1,52 @@
 <div class="anniversary-container">
- <div *ngIf='numberOfAnniversaryPeople === -1'>
-    <!-- <app-spinner spinnerText="Trwa sprawdzanie dzisiejszych rocznic "></app-spinner> -->
-    <div class="loading-data-photo">x</div>
+  <div *ngIf='numberOfAnniversaryPeople === -1; else dataExists'>
+    <div class="loading-data-photo"></div>
     Trwa sprawdzanie dzisiejszych rocznic...
   </div>
-  <ng-container *ngIf='numberOfAnniversaryPeople >= 0'>
-    <ng-container *ngIf='numberOfAnniversaryPeople > 0'>
-
-          <h1>Dzisiejsze rocznice śmierci</h1>
-
-
-        <div id="anniversary-grid">
-          <ng-container *ngFor="let person of anniversaryPeople">
-            <div class="anniversary-item" (click)="onRowClick(person.tombId, person.id)">
-              <div><img src="assets/icons/tomb-icon.png"></div>
-              <div class="person-info">
-                <i>Ś.P.</i><br>
-                <b>{{ person.name }} {{ person.surname }}</b><br>
-                {{ person.anniversaryCounter }}. rocznica
-              </div>
+  <ng-template #dataExists>
+    <ng-container *ngIf='numberOfAnniversaryPeople > 0; else noAnniversary'>
+      <h1>Dzisiejsze rocznice śmierci</h1>
+      <div id="anniversary-grid">
+        <ng-container *ngFor="let person of anniversaryPeople">
+          <div class="anniversary-item" (click)="onRowClick(person.tombId, person.id)">
+            <div><img src="assets/icons/tomb-icon.png"></div>
+            <div class="person-info">
+              <i>Ś.P.</i><br>
+              <b>{{ person.name }} {{ person.surname }}</b><br>
+              {{ person.anniversaryCounter }}. rocznica
             </div>
-          </ng-container>
-        </div>
-        <br>
+          </div>
+        </ng-container>
+      </div>
+      <br>
+      <p>
         <i>
           Wieczny odpoczynek racz im dać, Panie,<br>
           a światłość wiekuista niechaj im świeci.<br>
           Niech odpoczywają w pokoju.<br>
           Amen.<br>
         </i>
-
+      </p>
     </ng-container>
-    <ng-container *ngIf='numberOfAnniversaryPeople === 0'>
-      <!-- <img mat-card-image src="assets/img/candles.jpg"> -->
-      
-        <br>Brak rocznic w dniu dzisiejszym.<br>
-          Módlmy się zatem za wszystkich zmarłych.<br>
-        <br>
-        <i>
-          Wieczny odpoczynek racz im dać, Panie,<br>
-          a światłość wiekuista niechaj im świeci.<br>
-          Niech odpoczywają w pokoju.<br>
-          Amen.<br><br>
-        </i>
-
-    </ng-container>
-    <br>
-    <ng-container *ngIf="!candleLighted">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)='lightCandle()'>Zapal znicz</button>
-    </ng-container>
-    <ng-container *ngIf="candleLighted">
-      <img src="https://66.media.tumblr.com/36353c142e4369af32acd81bfac457fc/tumblr_mvmozlfDzP1rhncyso1_400.gifv" alt="Smiley face" height="80" width="142">
-    </ng-container>
+  <ng-template #noAnniversary>
+    <p>
+      Brak rocznic w dniu dzisiejszym.<br>
+      Módlmy się zatem za wszystkich zmarłych.<br>
+      <br>
+      <i>
+        Wieczny odpoczynek racz im dać, Panie,<br>
+        a światłość wiekuista niechaj im świeci.<br>
+        Niech odpoczywają w pokoju.<br>
+        Amen.<br><br>
+      </i>
+    </p>
+  </ng-template>
+  <br>
+  <ng-container *ngIf="!candleLighted">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)='lightCandle()'>Zapal znicz</button>
   </ng-container>
+  <ng-container *ngIf="candleLighted">
+    <img src="https://66.media.tumblr.com/36353c142e4369af32acd81bfac457fc/tumblr_mvmozlfDzP1rhncyso1_400.gifv" alt="Smiley face" height="80" width="142">
+  </ng-container>
+  </ng-template>
 </div>

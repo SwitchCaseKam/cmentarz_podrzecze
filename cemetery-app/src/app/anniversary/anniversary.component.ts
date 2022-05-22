@@ -20,6 +20,7 @@ export class AnniversaryComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.anniversarySubscription = this.dataService.getAnniversaryPeople().subscribe((anniversaryPeople: Person[]) => {
+      console.log(anniversaryPeople)
       if (anniversaryPeople?.length >= 0) {
         this.anniversaryPeople = anniversaryPeople;
         this.numberOfAnniversaryPeople = this.anniversaryPeople?.length;

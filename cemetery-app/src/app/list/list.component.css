@@ -1,8 +1,15 @@
 #people-list-box {
-  margin-top: 10px;
-  padding: 15px;
-  background-color: rgba(236, 235, 235, 0.6);
-  backdrop-filter: blur(2px);
+  margin-top: 1em;
   animation-name: fade-in;
   animation-duration: 1s;
+}
+
+.title {
+  margin-top: 1em;
+}
+
+.no-data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

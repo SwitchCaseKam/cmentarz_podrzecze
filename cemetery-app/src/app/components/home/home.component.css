@@ -1,4 +1,3 @@
-
 #grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -30,8 +29,10 @@
   font-size: 16px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 100px;
+  grid-gap: 5em;
   padding-top: 15px;
+  animation-name: fade-in;
+  animation-duration: 2s;
 }
 
 .church-info {
@@ -61,20 +62,9 @@
   grid-column-end: 3;
 }
 
-
-
-#hyperlink-description {
-  text-align: center;
-  color:black;
-}
-
-.page-visit-counter {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.cemetery-map-info:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
 }
 
 a {
@@ -104,5 +94,15 @@ a {
     grid-column-start: 1;
     grid-column-end: 2;
   }
+}
 
+.no-data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+  height: 500px;
+  animation-name: fade-in;
+  animation-duration: 2s;
 }

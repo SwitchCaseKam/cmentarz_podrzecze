@@ -28,14 +28,6 @@ nav {
   width: 100%;
 }
 
-/* .title:before {
-  content: "";
-  background: url(https://img.icons8.com/emoji/48/000000/candle-emoji.png);
-  width: 48px;
-  height: 48px;
-  float: left;
-} */
-
 ul {
   list-style-type: none;
   padding: 0;
@@ -52,11 +44,10 @@ li {
   justify-content: center;
   align-items: center;
 }
+
 li:hover {
-  transform: scale(1.2);
   font-weight: bold;
 }
-
 
 a {
   text-decoration: none;
@@ -107,7 +98,8 @@ a {
     background-color: rgb(80, 80, 226);
   }
 
-  #navbar-photo {
+  .navbar-photo {
     width: 100%;
+    background-image: url('https://zck-krakow.pl/thumbs/settings/x20201229_140200_20180209_144247_panorama2.jpg.pagespeed.ic.vSUygIiKQK.webp');
   }
 }

@@ -1,11 +1,16 @@
 #main-info-box {
-  margin-top: 10px;
+  margin-top: 1em;
   padding: 2rem;
   border: 2px solid red;
+  animation-name: fade-in;
+  animation-duration: 1s;
 }
 
 #law-info-box {
-  background-color: rgba(236, 235, 235, 0.6);
-  backdrop-filter: blur(2px);
-  padding: 10px;
+  animation-name: fade-in;
+  animation-duration: 1s;
+}
+
+.title {
+  margin-top: 1em;
 }
