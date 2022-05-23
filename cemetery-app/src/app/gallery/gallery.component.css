@@ -2,3 +2,12 @@
     margin-top: 1em;
     margin-bottom: 1em;
 }
+
+.pictures {
+    animation-name: fade-in;
+    animation-duration: 1s;
+}
+
+.container {
+    height: 32vh;
+}

@@ -3,7 +3,7 @@ import { DataApiService } from './data-api.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { Person } from '../models/person.model';
-import { delay, map, retryWhen, switchMap } from 'rxjs/operators';
+import { retryWhen, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -97,7 +97,6 @@ export class DataService {
         }
       }
     });
-    console.log(this.anniversaryPeople);
     this.anniversaryPeopleSubject.next(this.anniversaryPeople);
   }
 

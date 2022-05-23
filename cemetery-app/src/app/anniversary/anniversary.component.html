@@ -5,7 +5,7 @@
   </div>
   <ng-template #dataExists>
     <ng-container *ngIf='numberOfAnniversaryPeople > 0; else noAnniversary'>
-      <h1>Dzisiejsze rocznice śmierci</h1>
+      <h2>Dzisiejsze rocznice śmierci</h2>
       <div id="anniversary-grid">
         <ng-container *ngFor="let person of anniversaryPeople">
           <div class="anniversary-item" (click)="onRowClick(person.tombId, person.id)">

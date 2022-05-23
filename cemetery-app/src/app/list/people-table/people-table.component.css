@@ -1,6 +1,6 @@
 #people-table-list {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 1.5em;
+  padding-bottom: 1em;
   animation-name: fade-in;
   animation-duration: 1s;
 }

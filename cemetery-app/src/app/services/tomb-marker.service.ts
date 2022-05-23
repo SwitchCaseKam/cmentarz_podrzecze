@@ -43,7 +43,7 @@ export class TombMarkerService {
       setTimeout(()=> {
         const dialogRef = this.dialog.open(DetailsComponent, {position: {top: '2%'}});
         dialogRef.afterClosed().subscribe();
-      }, delayTime);
+      }, delayTime + 500);
     } catch {
       console.log('error');
     }

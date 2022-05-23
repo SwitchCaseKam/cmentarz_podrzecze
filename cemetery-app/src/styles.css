@@ -2,11 +2,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 
-html, body { height: 100%; }
-body { 
-    margin: 0; 
-    /* font-family: 'Fira Code', sans-serif;  */
+html, body { 
+    min-height: 100%;
 }
+
+* {
+    font-family: Oxygen, sans-serif !important;
+  }
 
 @keyframes fade-in {
     from { opacity: 0; }

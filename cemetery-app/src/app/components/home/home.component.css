@@ -1,36 +1,9 @@
-#grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 15px;
-  padding-top: 15px;
-}
-
-
-#info-content-header-image {
-  background-image: url('https://img.icons8.com/emoji/48/000000/candle-emoji.png');
-  background-size: cover;
-}
-
-#church-page-header-image {
-  background-size: cover;
-}
-
-.card {
-  height: 100%;
-  background-color: rgba(236, 235, 235, 0.9);
-  backdrop-filter: blur(2px);
-  animation-name: fade-in;
-  animation-duration: 1s;
-}
-
-
 .grid-main-container {
-  font-family: "Oxygen", Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 1em;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 5em;
-  padding-top: 15px;
+  grid-gap: 3em;
+  padding-top: 1em;
   animation-name: fade-in;
   animation-duration: 2s;
 }
@@ -40,10 +13,10 @@
   grid-column-end: 3;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
-  /* background-image: url('http://www.parswiniarsko.seva.pl/public/img/slider-top/slidery2022e.jpg'); */
-  background-image: url('https://s3-eu-west-1.amazonaws.com/mata-in-the-cloud/wizytowka%2F79514927161402d7e42849946de029dd.jpg');
+  background-image: url('http://www.parswiniarsko.seva.pl/public/img/slider-top/slidery2022e.jpg');
+  /* background-image: url('https://s3-eu-west-1.amazonaws.com/mata-in-the-cloud/wizytowka%2F79514927161402d7e42849946de029dd.jpg'); */
   background-size: cover;
   font-weight: bold;
   color: white;
@@ -72,12 +45,16 @@ a {
 }
 
 .hyperlink-text {
-  color: wheat;
+  color: rgb(255, 255, 255);
   z-index: 1;
+  font-size: 2em;
+  background-color: rgb(0, 0, 0);
+  padding: 1em;
 }
 
 .main-page-text {
-  padding: 20px;
+  padding: 2em;
+  border-right: 1px solid grey;
 }
 
 @media (max-width: 800px) {
@@ -93,6 +70,10 @@ a {
   .cemetery-map-info {
     grid-column-start: 1;
     grid-column-end: 2;
+  }
+
+  .main-page-text {
+    border-right: none;
   }
 }
 
