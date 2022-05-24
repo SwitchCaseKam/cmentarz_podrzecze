@@ -5,6 +5,7 @@
 }
 
 #general-stats-box {
+  margin-top: 1em;
   display: flex;
   justify-content: space-evenly;
   animation-duration: 1s;
