@@ -1,7 +1,7 @@
 import { DatabaseDate } from './../models/databaseDate.model';
 import { DataApiService } from './data-api.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Person } from '../models/person.model';
 import { retryWhen, switchMap } from 'rxjs/operators';
 
@@ -19,7 +19,7 @@ export class DataService {
   private tombPeopleMap: Map<number, Person[]> = new Map();
 
   private anniversaryPeople: Person[] = [];
-  private anniversaryPeopleSubject = new Subject<Person[]>();
+  private anniversaryPeopleSubject = new BehaviorSubject<Person[]>(this.anniversaryPeople);
 
   constructor(private dataApiService: DataApiService) {}
 
@@ -93,6 +93,9 @@ export class DataService {
         if (date[0] + '.' + date[1] === todayDateAndMonth) {
           const anniversaryCounter: number = currentYear - parseInt(date[2]);
           person['anniversaryCounter'] = anniversaryCounter;
+          // if (this.anniversaryPeople === undefined) {
+          //   this.anniversaryPeople = [];
+          // }
           this.anniversaryPeople.push(person);
         }
       }

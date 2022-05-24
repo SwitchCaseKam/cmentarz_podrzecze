@@ -1,6 +1,5 @@
 <div class="anniversary-container">
   <div *ngIf='numberOfAnniversaryPeople === -1; else dataExists'>
-    <div class="loading-data-photo"></div>
     Trwa sprawdzanie dzisiejszych rocznic...
   </div>
   <ng-template #dataExists>
@@ -29,6 +28,7 @@
       </p>
     </ng-container>
   <ng-template #noAnniversary>
+    <h2>Dzisiejsze rocznice śmierci</h2>
     <p>
       Brak rocznic w dniu dzisiejszym.<br>
       Módlmy się zatem za wszystkich zmarłych.<br>

@@ -14,6 +14,7 @@ import { LawRulesComponent } from './components/law-rules/law-rules.component';
 import { MatCardModule } from '@angular/material/card';
 import { HeaderComponent } from './components/common/header/header.component';
 import { CommonComponentsModule } from './common-components/common-components.module';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CommonComponentsModule } from './common-components/common-components.mo
     ReactiveFormsModule,
     MatCardModule,
     MatDialogModule,
+    NgImageSliderModule,
     CommonComponentsModule
   ],
   providers: [],

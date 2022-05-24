@@ -21,7 +21,7 @@ export class StatsComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.statsSubscription = this.statsService.getDeathsByYearStatsSubject().pipe(
-      filter(deathsData => deathsData?.size > 0)
+      filter(deathsData => deathsData?.size > 0),
     ).subscribe(() => {
         this.sexesStats = this.statsService.getSexesStats();
         this.deathsByYear = this.statsService.getDeathsByYearStats();

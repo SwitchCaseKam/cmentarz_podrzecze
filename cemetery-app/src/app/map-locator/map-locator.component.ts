@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { filter, switchMap, tap } from 'rxjs/operators';
+import { filter, switchMap, take, tap } from 'rxjs/operators';
 import { Person } from '../models/person.model';
 import { DataService } from '../services/data.service';
 
@@ -11,6 +11,7 @@ import { DataService } from '../services/data.service';
 })
 export class MapLocatorComponent implements OnInit {
 
+  @ViewChild('map-container') private mapContainer: ElementRef;
   public allPeople: Person[];
   public dbDate: string;
   private dataSubscription: Subscription = new Subscription();

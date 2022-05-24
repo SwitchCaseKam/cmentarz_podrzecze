@@ -18,7 +18,7 @@
 }
 
 .stats-item-box {
-  padding: 10px;
+  padding: 0.8em;
   text-align: center;
   animation-duration: 1s;
   animation-name: fade-in;
@@ -29,9 +29,11 @@
 }
 
 .no-data-container {
+  padding-top: 1em;
   display: flex;
   justify-content: center;
-  align-items: center;
+  text-align: center;
+  height: 40vh;
 }
 
 @media (max-width: 800px) {

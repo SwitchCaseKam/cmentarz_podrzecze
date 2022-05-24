@@ -18,9 +18,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.dataSubscription = this.dataService.getAllPeopleSubject().pipe(
-      // filter((d: Person[]) => d.length > 0)
-      ).subscribe(
-      (data: Person[]) => this.data = data);
+      filter((d: Person[]) => d.length > 0)
+    ).subscribe((data: Person[]) => this.data = data);
   }
 
   public ngOnDestroy(): void {

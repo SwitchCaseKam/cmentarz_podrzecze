@@ -13,6 +13,7 @@
 }
 
 #map-container {
+  margin-top: 1em;
   animation-name: fade-in;
   animation-duration: 0.5s;
 }
@@ -26,9 +27,11 @@
 }
 
 .no-data-container {
+  padding-top: 1em;
   display: flex;
   justify-content: center;
-  align-items: center;
+  text-align: center;
+  height: 40vh;
 }
 
 @media (max-width: 800px) {
