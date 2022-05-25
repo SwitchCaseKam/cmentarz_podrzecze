@@ -85,7 +85,7 @@ a {
   ul {
     position: absolute;
     right: 0;
-    top: 3.5em;
+    top: 5em;
     background-color: rgb(158, 158, 172);
     flex-direction: column;
     z-index: 1;
@@ -101,6 +101,11 @@ a {
   li:hover {
     background-color: rgb(78, 78, 92);
     color: white;
+  }
+
+  li {
+    font-size: 1.2em;
+    padding: 0.2em;
   }
 }
 

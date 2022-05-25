@@ -7,11 +7,9 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AnniversaryComponent } from './anniversary/anniversary.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { LawRulesComponent } from './components/law-rules/law-rules.component';
-import { MatCardModule } from '@angular/material/card';
 import { HeaderComponent } from './components/common/header/header.component';
 import { CommonComponentsModule } from './common-components/common-components.module';
 import { NgImageSliderModule } from 'ng-image-slider';
@@ -31,9 +29,6 @@ import { NgImageSliderModule } from 'ng-image-slider';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatCardModule,
     MatDialogModule,
     NgImageSliderModule,
     CommonComponentsModule

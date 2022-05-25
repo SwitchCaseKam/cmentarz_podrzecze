@@ -57,6 +57,17 @@ a {
   border-right: 1px solid grey;
 }
 
+.no-data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+  height: 500px;
+  animation-name: fade-in;
+  animation-duration: 2s;
+}
+
 @media (max-width: 800px) {
   .grid-main-container {
     grid-template-columns: 1fr;
@@ -75,15 +86,4 @@ a {
   .main-page-text {
     border-right: none;
   }
-}
-
-.no-data-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 50px;
-  height: 500px;
-  animation-name: fade-in;
-  animation-duration: 2s;
 }
