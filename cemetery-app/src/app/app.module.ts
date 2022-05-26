@@ -3,24 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AnniversaryComponent } from './anniversary/anniversary.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { LawRulesComponent } from './components/law-rules/law-rules.component';
-import { HeaderComponent } from './components/common/header/header.component';
 import { CommonComponentsModule } from './common-components/common-components.module';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { HeaderComponent } from './common-components/header/header.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { LawRulesComponent } from './pages/law-rules/law-rules.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     HomeComponent,
-    HeaderComponent,
     AnniversaryComponent,
+    HeaderComponent,
     ContactComponent,
     LawRulesComponent,
   ],

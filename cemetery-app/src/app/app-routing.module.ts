@@ -1,9 +1,10 @@
-import { LawRulesComponent } from './components/law-rules/law-rules.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { AnniversaryComponent } from './anniversary/anniversary.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { LawRulesComponent } from './pages/law-rules/law-rules.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { HomeComponent } from './pages/home/home.component';
+
 
 const routes: Routes = [
   { path: 'mapa', loadChildren: () => import('./map-locator/map-locator.module').then(m => m.MapLocatorModule) },
