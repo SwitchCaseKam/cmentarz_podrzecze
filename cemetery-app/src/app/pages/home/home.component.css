@@ -15,8 +15,8 @@
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
-  background-image: url('http://www.parswiniarsko.seva.pl/public/img/slider-top/slidery2022e.jpg');
-  /* background-image: url('https://s3-eu-west-1.amazonaws.com/mata-in-the-cloud/wizytowka%2F79514927161402d7e42849946de029dd.jpg'); */
+  /* background-image: url('http://www.parswiniarsko.seva.pl/public/img/slider-top/slidery2022e.jpg'); */
+  background-image: url('https://s3-eu-west-1.amazonaws.com/mata-in-the-cloud/wizytowka%2F79514927161402d7e42849946de029dd.jpg');
   background-size: cover;
   font-weight: bold;
   color: white;
