@@ -1,5 +1,6 @@
 <div class="container">
   <ng-container *ngIf="allPeople; else noData">
+    <h1 class="title">Mapa</h1>
     <div id="map-locator-flex-container">
       <div id='text-info-box'>
           Tutaj znajdziesz mapę cmentarza wraz z możliwością wyszukiwania zmarłych.
@@ -20,6 +21,8 @@
     </div>
   </ng-container>
   <ng-template #noData>
-    <app-spinner></app-spinner>
+    <div class="no-data-container">
+      <app-spinner></app-spinner>
+    </div>
   </ng-template>
 </div>

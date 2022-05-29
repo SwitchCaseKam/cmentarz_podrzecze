@@ -1,0 +1,10 @@
+#text-info-box {
+  padding-top: 1em;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  height: 30vh;
+}
+
+.title {
+  margin-top: 1em;
+}

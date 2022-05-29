@@ -13,7 +13,7 @@ enum tombServerEndpoints {
 })
 export class DataApiService {
 
-  // private apiUrl = 'https://test-node-tomb-server.herokuapp.com';
+  // private apiUrl = 'http://localhost:3000';
   private apiUrl = 'https://test-node-tomb-server.herokuapp.com';
 
   constructor(private http: HttpClient) { }

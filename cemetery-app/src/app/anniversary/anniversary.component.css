@@ -1,14 +1,9 @@
-#anniversary-card-header-image {
-  background-image: url('https://img.icons8.com/emoji/48/000000/candle-emoji.png');
-  background-size: cover;
-}
-
-.card {
-  height: 100%;
+.anniversary-container {
   text-align: center;
-  background-color: rgba(236, 235, 235, 0.9);
   animation-name: fade-in;
   animation-duration: 2s;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .anniversary-item {
@@ -18,14 +13,13 @@
   justify-content: center;
   background-color: rgb(194, 191, 191, 0.6);
   padding: 10px;
-  box-shadow: 0 30px 40px rgba(0,0,0,.2);
   cursor: pointer;
+  margin-bottom: 1em;
 }
 
 .anniversary-item:nth-child(2n) {
   background-color: rgba(175, 167, 167, 0.5);
 }
-
 
 .anniversary-item:hover {
   background-color: rgb(47, 101, 216);
@@ -39,14 +33,4 @@
 
 .person-info {
   text-align: left;
-}
-
-.card {
-  background-color: rgba(236, 235, 235, 0.9);
-}
-
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
 }

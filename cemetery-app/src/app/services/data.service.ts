@@ -1,9 +1,9 @@
 import { DatabaseDate } from './../models/databaseDate.model';
 import { DataApiService } from './data-api.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Person } from '../models/person.model';
-import { delay, map, retryWhen, switchMap } from 'rxjs/operators';
+import { retryWhen, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +17,13 @@ export class DataService {
   private databaseDateSubject = new BehaviorSubject<string>(this.databaseDate);
 
   private tombPeopleMap: Map<number, Person[]> = new Map();
-  private tombPeopleMapSubject = new BehaviorSubject<Map<number, Person[]>>(this.tombPeopleMap);
 
   private anniversaryPeople: Person[] = [];
-  private anniversaryPeopleSubject = new Subject<Person[]>();
+  private anniversaryPeopleSubject = new BehaviorSubject<Person[]>(this.anniversaryPeople);
 
-  constructor(private dataApiService: DataApiService) {
+  constructor(private dataApiService: DataApiService) {}
+
+  public getDataFromServer(): void {
     this.getAllPeople();
     this.getDatabaseDate();
   }
@@ -35,12 +36,12 @@ export class DataService {
     return this.databaseDateSubject.asObservable();
   }
 
-  public getTombData(tombId: number): Person[] {
-    return this.tombPeopleMap.get(tombId);
-  }
-
   public getAnniversaryPeople(): Observable<Person[]> {
     return this.anniversaryPeopleSubject.asObservable();
+  }
+
+  public getTombData(tombId: number): Person[] {
+    return this.tombPeopleMap.get(tombId);
   }
 
   private getAllPeople(): void {
@@ -50,7 +51,6 @@ export class DataService {
             return of(error);
         }),
       )),
-      delay(5000),
     ).subscribe(
       (people: Person[]) => {
         this.allPeople = people;
@@ -62,7 +62,7 @@ export class DataService {
   }
 
   private getDatabaseDate(): void {
-    this.dataApiService.getDatabaseDate().pipe().subscribe(
+    this.dataApiService.getDatabaseDate().subscribe(
       (dbDate: DatabaseDate) => {
         this.databaseDate = dbDate[0]?.modifiedDate;
         this.databaseDateSubject.next(this.databaseDate);
@@ -81,18 +81,21 @@ export class DataService {
       }
       this.tombPeopleMap.set(person.tombId, currentState);
     });
-    this.tombPeopleMapSubject.next(this.tombPeopleMap);
   }
 
   private checkAnniversaries(allPeople: Person[]): void {
     const today = new Date();
     const todayDateAndMonth = this.getCurrentDate();
+    const currentYear = today.getFullYear();
     allPeople.forEach((person: Person) => {
       const date = person.deathDate.split('.');
       if (date.length === 3) {
         if (date[0] + '.' + date[1] === todayDateAndMonth) {
-          const anniversaryCounter: number = today.getFullYear() - parseInt(date[2]);
+          const anniversaryCounter: number = currentYear - parseInt(date[2]);
           person['anniversaryCounter'] = anniversaryCounter;
+          // if (this.anniversaryPeople === undefined) {
+          //   this.anniversaryPeople = [];
+          // }
           this.anniversaryPeople.push(person);
         }
       }

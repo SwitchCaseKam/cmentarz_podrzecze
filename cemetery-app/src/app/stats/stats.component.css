@@ -1,11 +1,11 @@
 #stats-flex-container {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  gap: 10px;
+  gap: 1em;
 }
 
 #general-stats-box {
+  margin-top: 1em;
   display: flex;
   justify-content: space-evenly;
   animation-duration: 1s;
@@ -19,12 +19,22 @@
 }
 
 .stats-item-box {
-  padding: 10px;
+  padding: 0.8em;
   text-align: center;
-  background-color: rgba(236, 235, 235, 0.6);
-  backdrop-filter: blur(2px);
   animation-duration: 1s;
   animation-name: fade-in;
+}
+
+.title {
+  margin-top: 1em;
+}
+
+.no-data-container {
+  padding-top: 1em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 40vh;
 }
 
 @media (max-width: 800px) {

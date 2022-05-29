@@ -1,4 +1,5 @@
 <div class='container'>
+  <h1 class="title">Statystyki</h1>
   <div id="stats-flex-container" *ngIf="sexesStats; else noData">
     <div id="general-stats-box" class="stats-item-box">
       <app-general-info
@@ -22,9 +23,12 @@
         numberOfAllWomen={{sexesStats.numberOfAllWomen}}
       ></app-pie-chart>
     </div>
+    <p *ngIf="dbDate">Stan na dzień: <b>{{dbDate}}</b></p>
   </div>
   <ng-template #noData>
-    <app-spinner></app-spinner>
+    <div class="no-data-container">
+      <app-spinner></app-spinner>
+    </div>
   </ng-template>
 </div>
 

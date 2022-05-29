@@ -33,3 +33,7 @@ td {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
+
+.btn {
+  margin: 0.3em;
+}

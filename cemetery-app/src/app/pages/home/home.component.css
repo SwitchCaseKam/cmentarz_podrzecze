@@ -1,0 +1,89 @@
+.grid-main-container {
+  font-size: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3em;
+  padding-top: 1em;
+  animation-name: fade-in;
+  animation-duration: 2s;
+}
+
+.church-info {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  /* background-image: url('http://www.parswiniarsko.seva.pl/public/img/slider-top/slidery2022e.jpg'); */
+  background-image: url('https://s3-eu-west-1.amazonaws.com/mata-in-the-cloud/wizytowka%2F79514927161402d7e42849946de029dd.jpg');
+  background-size: cover;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  height: 250px;
+}
+
+.church-info:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+  color: black;
+}
+
+.cemetery-map-info {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.cemetery-map-info:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hyperlink-text {
+  color: rgb(255, 255, 255);
+  z-index: 1;
+  font-size: 2em;
+  background-color: rgb(0, 0, 0);
+  padding: 1em;
+}
+
+.main-page-text {
+  padding: 2em;
+  border-right: 1px solid grey;
+}
+
+.no-data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+  height: 500px;
+  animation-name: fade-in;
+  animation-duration: 2s;
+}
+
+@media (max-width: 800px) {
+  .grid-main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .church-info {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .cemetery-map-info {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .main-page-text {
+    border-right: none;
+  }
+}
