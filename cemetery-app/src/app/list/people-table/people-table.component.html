@@ -11,7 +11,7 @@
     <tbody>
       <tr *ngFor="let person of allPeople; let i = index" (click)="onRowClick(person.tombId, person.id)">
         <td scope="row">{{ i + 1 }}</td>
-        <td><b>{{ person.name }} {{ person.surname }}</b></td>
+        <td><b>{{ person.surname }} {{ person.name }}</b></td>
         <td>{{ person.birthDate }}</td>
         <td>{{ person.deathDate }}</td>
       </tr>
