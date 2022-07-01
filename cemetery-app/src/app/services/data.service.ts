@@ -3,7 +3,7 @@ import { DataApiService } from './data-api.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Person } from '../models/person.model';
-import { retryWhen, switchMap } from 'rxjs/operators';
+import { delay, retryWhen, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +50,7 @@ export class DataService {
         switchMap((error) => {
             return of(error);
         }),
+        delay(2000)
       )),
     ).subscribe(
       (people: Person[]) => {
