@@ -3,12 +3,15 @@ import { DataApiService } from './data-api.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Person } from '../models/person.model';
-import { delay, retryWhen, switchMap } from 'rxjs/operators';
+import { delay, retryWhen, switchMap, tap } from 'rxjs/operators';
+import { AuthToken } from '../models/authToken.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
+  private authToken: string = '';
 
   private allPeople: Person[] = [];
   private allPeopleSubject = new BehaviorSubject<Person[]>(this.allPeople);
@@ -25,7 +28,15 @@ export class DataService {
 
   public getDataFromServer(): void {
     this.getAllPeople();
-    this.getDatabaseDate();
+    // this.getDatabaseDate();
+  }
+
+  public getAuthToken(): string {
+    return this.authToken;
+  }
+
+  public setAuthToken(token: string): void {
+    this.authToken = token;
   }
 
   public getAllPeopleSubject(): Observable<Person[]> {
@@ -45,6 +56,19 @@ export class DataService {
   }
 
   private getAllPeople(): void {
+    this.dataApiService.getAuthToken().pipe(
+      tap((authToken: AuthToken) => this.setAuthToken(authToken.token)),
+      switchMap(() =>  this.dataApiService.getAllPeople())
+    ).subscribe(
+      (people: Person[]) => {
+        this.allPeople = people;
+        this.allPeopleSubject.next(this.allPeople);
+        this.createTombPeopleMap(this.allPeople);
+        this.checkAnniversaries(this.allPeople);
+      }
+    );
+
+
     this.dataApiService.getAllPeople().pipe(
       retryWhen(errors => errors.pipe(
         switchMap((error) => {
