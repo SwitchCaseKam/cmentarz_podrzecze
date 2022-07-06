@@ -58,24 +58,13 @@ export class DataService {
   private getAllPeople(): void {
     this.dataApiService.getAuthToken().pipe(
       tap((authToken: AuthToken) => this.setAuthToken(authToken.token)),
-      switchMap(() =>  this.dataApiService.getAllPeople())
-    ).subscribe(
-      (people: Person[]) => {
-        this.allPeople = people;
-        this.allPeopleSubject.next(this.allPeople);
-        this.createTombPeopleMap(this.allPeople);
-        this.checkAnniversaries(this.allPeople);
-      }
-    );
-
-
-    this.dataApiService.getAllPeople().pipe(
       retryWhen(errors => errors.pipe(
         switchMap((error) => {
             return of(error);
         }),
         delay(2000)
       )),
+      switchMap(() =>  this.dataApiService.getAllPeople())
     ).subscribe(
       (people: Person[]) => {
         this.allPeople = people;
