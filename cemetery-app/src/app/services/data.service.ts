@@ -27,8 +27,27 @@ export class DataService {
   constructor(private dataApiService: DataApiService) {}
 
   public getDataFromServer(): void {
-    this.getAllPeople();
-    // this.getDatabaseDate();
+    this.dataApiService.getAuthToken().pipe(
+      tap((authToken: AuthToken) => this.setAuthToken(authToken.token)),
+      retryWhen(errors => errors.pipe(
+        switchMap((error) => {
+            return of(error);
+        }),
+        delay(2000)
+      )),
+      switchMap(() =>  this.dataApiService.getDbData())
+    ).subscribe(
+      (dbData: { date: DatabaseDate; people: Person[]; }) => {
+        this.allPeople = dbData.people;
+        this.allPeopleSubject.next(this.allPeople);
+
+        this.databaseDate = dbData.date[0]?.modifiedDate;
+        this.databaseDateSubject.next(this.databaseDate);
+
+        this.createTombPeopleMap(this.allPeople);
+        this.checkAnniversaries(this.allPeople);
+      }
+    );
   }
 
   public getAuthToken(): string {
@@ -53,35 +72,6 @@ export class DataService {
 
   public getTombData(tombId: number): Person[] {
     return this.tombPeopleMap.get(tombId);
-  }
-
-  private getAllPeople(): void {
-    this.dataApiService.getAuthToken().pipe(
-      tap((authToken: AuthToken) => this.setAuthToken(authToken.token)),
-      retryWhen(errors => errors.pipe(
-        switchMap((error) => {
-            return of(error);
-        }),
-        delay(2000)
-      )),
-      switchMap(() =>  this.dataApiService.getAllPeople())
-    ).subscribe(
-      (people: Person[]) => {
-        this.allPeople = people;
-        this.allPeopleSubject.next(this.allPeople);
-        this.createTombPeopleMap(this.allPeople);
-        this.checkAnniversaries(this.allPeople);
-      }
-    );
-  }
-
-  private getDatabaseDate(): void {
-    this.dataApiService.getDatabaseDate().subscribe(
-      (dbDate: DatabaseDate) => {
-        this.databaseDate = dbDate[0]?.modifiedDate;
-        this.databaseDateSubject.next(this.databaseDate);
-      }
-    );
   }
 
   private createTombPeopleMap(allPeople: Person[]): void {
