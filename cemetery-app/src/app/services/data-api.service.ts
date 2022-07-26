@@ -23,7 +23,10 @@ export class DataApiService {
   constructor(private http: HttpClient) { }
 
   public getAuthToken(): Observable<AuthToken> {
-    return this.http.get<AuthToken>(`${this.apiUrl}/${tombServerEndpoints.TOKEN_SIGN}`)
+    return this.http.post<AuthToken>(
+      `${this.apiUrl}/${tombServerEndpoints.TOKEN_SIGN}`,
+      { userName: 'podrzecze-root', password: 'podrzecze-root' }
+    );
   }
 
   public getDbData(): Observable<{date: DatabaseDate; people: Person[];}> {
