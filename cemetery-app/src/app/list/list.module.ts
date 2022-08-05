@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ListRoutingModule } from './list-routing.module';
 import { ListComponent } from './list.component';
 import { PeopleTableComponent } from './people-table/people-table.component';
-import { CommonComponentsModule } from '../common-components/common-components.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { CommonComponentsModule } from '../common-components/common-components.m
   imports: [
     CommonModule,
     ListRoutingModule,
-    CommonComponentsModule
+    SharedModule
   ]
 })
 export class ListModule { }

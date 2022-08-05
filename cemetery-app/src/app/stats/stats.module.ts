@@ -8,7 +8,7 @@ import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 import { BarDetailsComponent } from './charts/bar-chart/bar-details/bar-details.component';
 import { ChartsModule } from 'ng2-charts';
 import { MatDialogModule } from '@angular/material/dialog';
-import { CommonComponentsModule } from '../common-components/common-components.module';
+import { SharedModule } from '../shared/shared.module';
 import { GeneralInfoComponent } from './general-info/general-info.component';
 
 
@@ -25,7 +25,7 @@ import { GeneralInfoComponent } from './general-info/general-info.component';
     ChartsModule,
     StatsRoutingModule,
     MatDialogModule,
-    CommonComponentsModule
+    SharedModule
   ]
 })
 export class StatsModule { }

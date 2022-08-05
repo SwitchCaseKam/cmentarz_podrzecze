@@ -8,9 +8,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AnniversaryComponent } from './anniversary/anniversary.component';
-import { CommonComponentsModule } from './common-components/common-components.module';
+import { SharedModule } from './shared/shared.module';
 import { NgImageSliderModule } from 'ng-image-slider';
-import { HeaderComponent } from './common-components/header/header.component';
+import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { LawRulesComponent } from './pages/law-rules/law-rules.component';
@@ -33,7 +33,7 @@ import { AuthInterceptor } from './auth.interceptor';
     BrowserAnimationsModule,
     MatDialogModule,
     NgImageSliderModule,
-    CommonComponentsModule
+    SharedModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
