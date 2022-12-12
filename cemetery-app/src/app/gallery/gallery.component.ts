@@ -51,36 +51,36 @@ export class GalleryComponent implements OnInit {
     autumn: [],
     winter: [
       {
-        image: "assets/img/gallery/winter/winter-1.jpg",
-        thumbImage: "assets/img/gallery/winter/winter-1.jpg"
+        image: "assets/img/gallery/winter/winter-11.JPG",
+        thumbImage: "assets/img/gallery/winter/winter-11.JPG"
       },
       {
-        image: "assets/img/gallery/winter/winter-2.jpg",
-        thumbImage: "assets/img/gallery/winter/winter-2.jpg"
+        image: "assets/img/gallery/winter/winter-22.JPG",
+        thumbImage: "assets/img/gallery/winter/winter-22.JPG"
       },
       {
-        image: "assets/img/gallery/winter/winter-3.jpg",
-        thumbImage: "assets/img/gallery/winter/winter-3.jpg"
+        image: "assets/img/gallery/winter/winter-33.JPG",
+        thumbImage: "assets/img/gallery/winter/winter-33.JPG"
       },
       {
-        image: "assets/img/gallery/winter/winter-4.jpg",
-        thumbImage: "assets/img/gallery/winter/winter-4.jpg"
+        image: "assets/img/gallery/winter/winter-44.JPG",
+        thumbImage: "assets/img/gallery/winter/winter-44.JPG"
       }, 
       {
-        image: "assets/img/gallery/winter/winter-5.jpg",
-        thumbImage: "assets/img/gallery/winter/winter-5.jpg"
+        image: "assets/img/gallery/winter/winter-55.JPG",
+        thumbImage: "assets/img/gallery/winter/winter-55.JPG"
       },
       {
-        image: "assets/img/gallery/winter/winter-6.jpg",
-        thumbImage: "assets/img/gallery/winter/winter-6.jpg"
+        image: "assets/img/gallery/winter/winter-66.JPG",
+        thumbImage: "assets/img/gallery/winter/winter-66.JPG"
       },
       {
-        image: "assets/img/gallery/winter/winter-7.jpg",
-        thumbImage: "assets/img/gallery/winter/winter-7.jpg"
+        image: "assets/img/gallery/winter/winter-77.JPG",
+        thumbImage: "assets/img/gallery/winter/winter-77.JPG"
       },
       {
-        image: "assets/img/gallery/winter/winter-8.jpg",
-        thumbImage: "assets/img/gallery/winter/winter-8.jpg"
+        image: "assets/img/gallery/winter/winter-88.JPG",
+        thumbImage: "assets/img/gallery/winter/winter-88.JPG"
       },
     ]
   }
