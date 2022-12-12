@@ -10,14 +10,14 @@
     <table class="table table-hover">
       <thead class="thead-dark">
         <tr>
-          <th scope="col"> Nazwisko i imię </th>
+          <th scope="col"> Imię i nazwisko </th>
           <th scope="col"> Data urodzenia </th>
           <th scope="col"> Data śmierci </th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let person of people" (click)="onRowClick(person.tombId)">
-          <td scope="row"><b>{{ person.surname }} {{ person.name }}</b></td>
+          <td scope="row"><b>{{ person.name }} {{ person.surname }}</b></td>
           <td>{{ person.birthDate }}</td>
           <td>{{ person.deathDate }}</td>
         </tr>

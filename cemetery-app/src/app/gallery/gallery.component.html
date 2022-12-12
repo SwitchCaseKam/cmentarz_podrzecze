@@ -1,4 +1,9 @@
 <div class="container">
     <h1 class="title">Galeria</h1>
-    <ng-image-slider class='pictures' [images]="imageObject" [imageSize]="{space: 4}" #nav></ng-image-slider>
+    <h2>Wiosna</h2>
+    <ng-image-slider class='pictures' [images]="images.spring" [imageSize]="{space: 4}" #nav></ng-image-slider>
+    <h2>Lato</h2>
+    <ng-image-slider class='pictures' [images]="images.summer" [imageSize]="{space: 4}" #nav></ng-image-slider>
+    <h2>Zima</h2>
+    <ng-image-slider class='pictures' [images]="images.winter" [imageSize]="{space: 4}" #nav></ng-image-slider>
 </div>
