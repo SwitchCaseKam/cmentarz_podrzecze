@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, Subscription } from 'rxjs';
 import { startWith, map} from 'rxjs/operators';
@@ -16,7 +16,7 @@ export class SearcherComponent implements OnInit, OnDestroy {
   @Input()
   public allPeople: Person[];
 
-  public searchField = new FormGroup({});
+  public searchField = new UntypedFormGroup({});
   public filteredPeopleSearchOptions: Observable<string[]>;
   private peopleDataSubscription: Subscription;
   private peopleSearchOptions: string[] = [];
@@ -24,7 +24,7 @@ export class SearcherComponent implements OnInit, OnDestroy {
 
   constructor(
     public dialog: MatDialog,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private tombMarkerService: TombMarkerService
   ) { }
 
@@ -66,9 +66,9 @@ export class SearcherComponent implements OnInit, OnDestroy {
     return this.peopleSearchOptions.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  private createSearchField(): FormGroup {
+  private createSearchField(): UntypedFormGroup {
     return this.formBuilder.group({
-      search: new FormControl('')
+      search: new UntypedFormControl('')
     });
   }
 
