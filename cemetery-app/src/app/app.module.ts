@@ -17,28 +17,27 @@ import { LawRulesComponent } from './pages/law-rules/law-rules.component';
 import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    routingComponents,
-    HomeComponent,
-    AnniversaryComponent,
-    HeaderComponent,
-    ContactComponent,
-    LawRulesComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    NgImageSliderModule,
-    SharedModule
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
-  ],
-  bootstrap: [AppComponent],
-  entryComponents: []
+    declarations: [
+        AppComponent,
+        routingComponents,
+        HomeComponent,
+        AnniversaryComponent,
+        HeaderComponent,
+        ContactComponent,
+        LawRulesComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        NgImageSliderModule,
+        SharedModule
+    ],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
