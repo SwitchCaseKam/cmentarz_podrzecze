@@ -15,6 +15,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { LawRulesComponent } from './pages/law-rules/law-rules.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
     declarations: [
@@ -33,7 +36,9 @@ import { AuthInterceptor } from './auth.interceptor';
         BrowserAnimationsModule,
         MatDialogModule,
         NgImageSliderModule,
-        SharedModule
+        SharedModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
