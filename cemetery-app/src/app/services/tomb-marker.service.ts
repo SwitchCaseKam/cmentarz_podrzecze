@@ -44,7 +44,7 @@ export class TombMarkerService {
         this.scroller.scrollToAnchor("map-container");
       }, delayTime)
       setTimeout(()=> {
-        const dialogRef = this.dialog.open(DetailsComponent, {position: {top: '2%'}});
+        const dialogRef = this.dialog.open(DetailsComponent, {position: {top: '2%'}, maxWidth: "90vh"});
         dialogRef.afterClosed().subscribe();
       }, delayTime + 500);
     } catch {

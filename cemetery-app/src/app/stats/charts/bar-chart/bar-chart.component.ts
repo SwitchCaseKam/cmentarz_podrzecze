@@ -41,7 +41,7 @@ export class BarChartComponent implements OnInit, OnDestroy {
   public onClick(event) {
     const year = event.active[0]?._model.label;
     if (year) {
-      const dialogRef = this.dialog.open(BarDetailsComponent);
+      const dialogRef = this.dialog.open(BarDetailsComponent, {position: {top: '2%'}, maxWidth: "90vh"});
       dialogRef.componentInstance.people = this.statsService.getPeopleByYear(year);
       dialogRef.componentInstance.year = year;
       dialogRef.afterClosed().subscribe();

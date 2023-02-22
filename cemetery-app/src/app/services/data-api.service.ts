@@ -4,6 +4,7 @@ import { Person } from '../models/person.model';
 import { DatabaseDate } from '../models/databaseDate.model';
 import { AuthToken } from '../models/authToken.model';
 import { forkJoin, Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 enum tombServerEndpoints {
   PEOPLE = 'people',
@@ -20,7 +21,7 @@ export class DataApiService {
   // private apiUrl = 'https://test-node-tomb-server.herokuapp.com';
   private apiUrl = 'https://test-nodejs-mysql-app.herokuapp.com';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private dbFirebaseService: AngularFirestore) { }
 
   public getAuthToken(): Observable<AuthToken> {
     return this.http.post<AuthToken>(
@@ -34,6 +35,10 @@ export class DataApiService {
       date: this.getDatabaseDate(),
       people: this.getAllPeople()
     });
+  }
+
+  public getPeopleData() {
+    return this.dbFirebaseService.collection('people').valueChanges();
   }
 
   private getAllPeople(): Observable<Person[]> {

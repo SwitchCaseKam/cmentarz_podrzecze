@@ -1,9 +1,9 @@
-<div>
-  <h2 mat-dialog-title>
-    <div class='title-container'><b>Informacje</b></div>
-  </h2>
-  <br>
 
+  <h2 mat-dialog-title>
+    <b>Informacje</b>
+  </h2>
+
+  
   <mat-dialog-content>
     <div *ngIf='numberOfPeople > 0; else noPeopleInTomb'>
       <table class="table">
@@ -21,11 +21,11 @@
             <td>{{ person.deathDate }}</td>
           </tr>
         </tbody>
-    </table>
-
-    <ng-container *ngIf="imageObject.length !== 0">
-      <ng-image-slider class='pictures' [images]="imageObject" [imageSize]="{width: '30%', height: '10%', space: 4}" #nav></ng-image-slider>
-    </ng-container>
+      </table>
+      
+      <ng-container *ngIf="imageObject.length !== 0">
+        <ng-image-slider class='pictures' [images]="imageObject" [imageSize]="{width: '30%', height: '10%', space: 4}" #nav></ng-image-slider>
+      </ng-container>
 
     <div *ngIf='lightCandleClicked'>
       <div class='pictures'>
@@ -45,7 +45,7 @@
     </div>
     <button mat-button mat-dialog-close class="btn btn-secondary">Zamknij</button>
   </mat-dialog-actions>
-</div>
+
 
 <!-- The MIT License (MIT)
 Copyright © 2022 Julien Bouquillon, revolunet <julien@revolunet.com>

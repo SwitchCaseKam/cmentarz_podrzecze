@@ -3,7 +3,7 @@ import { DataApiService } from './data-api.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Person } from '../models/person.model';
-import { delay, retryWhen, switchMap, tap } from 'rxjs/operators';
+import { delay, map, retryWhen, switchMap, tap } from 'rxjs/operators';
 import { AuthToken } from '../models/authToken.model';
 
 @Injectable({
@@ -27,27 +27,38 @@ export class DataService {
   constructor(private dataApiService: DataApiService) {}
 
   public getDataFromServer(): void {
-    this.dataApiService.getAuthToken().pipe(
-      tap((authToken: AuthToken) => this.setAuthToken(authToken.token)),
-      retryWhen(errors => errors.pipe(
-        switchMap((error) => {
-            return of(error);
-        }),
-        delay(2000)
-      )),
-      switchMap(() =>  this.dataApiService.getDbData())
-    ).subscribe(
-      (dbData: { date: DatabaseDate; people: Person[]; }) => {
-        this.allPeople = dbData.people;
-        this.allPeopleSubject.next(this.allPeople);
+    // this.dataApiService.getAuthToken().pipe(
+    //   tap((authToken: AuthToken) => this.setAuthToken(authToken.token)),
+    //   retryWhen(errors => errors.pipe(
+    //     switchMap((error) => {
+    //         return of(error);
+    //     }),
+    //     delay(2000)
+    //   )),
+    //   switchMap(() =>  this.dataApiService.getDbData())
+    // ).subscribe(
+    //   (dbData: { date: DatabaseDate; people: Person[]; }) => {
+    //     this.allPeople = dbData.people;
+    //     this.allPeopleSubject.next(this.allPeople);
 
-        this.databaseDate = dbData.date[0]?.modifiedDate;
-        this.databaseDateSubject.next(this.databaseDate);
+    //     this.databaseDate = dbData.date[0]?.modifiedDate;
+    //     this.databaseDateSubject.next(this.databaseDate);
 
-        this.createTombPeopleMap(this.allPeople);
-        this.checkAnniversaries(this.allPeople);
-      }
-    );
+    //     this.createTombPeopleMap(this.allPeople);
+    //     this.checkAnniversaries(this.allPeople);
+    //   }
+    // );
+
+    this.dataApiService.getPeopleData().pipe(
+      map(d => d as Person[])
+    ).subscribe(d => {
+      console.log('DB firebase: ', d)
+      this.allPeople = d;
+      this.allPeopleSubject.next(this.allPeople);
+      
+      this.createTombPeopleMap(this.allPeople);
+      this.checkAnniversaries(this.allPeople);
+    });
   }
 
   public getAuthToken(): string {
