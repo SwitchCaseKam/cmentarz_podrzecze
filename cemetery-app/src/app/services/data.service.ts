@@ -50,7 +50,12 @@ export class DataService {
     // );
 
     this.dataApiService.getPeopleData().pipe(
-      map(d => d as Person[])
+      map(d => d as Person[]),
+      tap(d => d.forEach(p => p.pictures = [
+        `https://firebasestorage.googleapis.com/v0/b/cmentarz-firebase-test.appspot.com/o/${p.tombId}_r1.JPG?alt=media`,
+        `https://firebasestorage.googleapis.com/v0/b/cmentarz-firebase-test.appspot.com/o/${p.tombId}_r1.JPG?alt=media`,
+        `https://firebasestorage.googleapis.com/v0/b/cmentarz-firebase-test.appspot.com/o/${p.tombId}_r1.JPG?alt=media`
+      ]))
     ).subscribe(d => {
       console.log('DB firebase: ', d)
       this.allPeople = d;
