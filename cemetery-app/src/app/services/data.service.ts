@@ -53,8 +53,8 @@ export class DataService {
       map(d => d as Person[]),
       tap(d => d.forEach(p => p.pictures = [
         `https://firebasestorage.googleapis.com/v0/b/cmentarz-firebase-test.appspot.com/o/${p.tombId}_r1.JPG?alt=media`,
-        `https://firebasestorage.googleapis.com/v0/b/cmentarz-firebase-test.appspot.com/o/${p.tombId}_r1.JPG?alt=media`,
-        `https://firebasestorage.googleapis.com/v0/b/cmentarz-firebase-test.appspot.com/o/${p.tombId}_r1.JPG?alt=media`
+        `https://firebasestorage.googleapis.com/v0/b/cmentarz-firebase-test.appspot.com/o/${p.tombId}_r2.JPG?alt=media`,
+        `https://firebasestorage.googleapis.com/v0/b/cmentarz-firebase-test.appspot.com/o/${p.tombId}_r3.JPG?alt=media`
       ]))
     ).subscribe(d => {
       console.log('DB firebase: ', d)
