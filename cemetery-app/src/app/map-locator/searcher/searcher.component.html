@@ -1,10 +1,10 @@
-<div class="container">
+
   <div id="searcher-grid-container">
     <div>
       Wyszukaj zmarłego:
       <form [formGroup]="searchField">
         <mat-form-field id="search-field">
-          <input type="string" placeholder="Wpisz imię i nazwisko zmarłego i kliknij Szukaj" matInput formControlName="search" [matAutocomplete]="auto" (keydown)="handleSearchEvent($event)">
+          <input type="string" placeholder="Wpisz imię i nazwisko zmarłego" matInput formControlName="search" [matAutocomplete]="auto" (keydown)="handleSearchEvent($event)">
           <mat-autocomplete #auto="matAutocomplete" (optionSelected)='getChosenPerson($event.option.value)'>
             <mat-option *ngFor="let person of filteredPeopleSearchOptions | async" [value]="person">
               {{person}}
@@ -18,4 +18,4 @@
     </div>
     <button mat-button class="btn btn-secondary" (click)="getTombInfo()">Szukaj</button>
   </div>
-</div>
+
