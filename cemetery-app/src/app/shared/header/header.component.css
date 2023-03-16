@@ -13,7 +13,7 @@
 
 nav {
   background-color: rgb(32, 29, 32);
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1;
   width: 100%;
@@ -63,7 +63,7 @@ a {
 #navbar-photo {
   width: 100%;
   height: 400px;
-  background: url("~src/assets/img/winter-88.jpg") center center fixed;
+  background: url("~src/assets/img/home-wide-lower.jpg") center center fixed;
   background-repeat:no-repeat;
   background-size:cover;
   border-bottom: 2px solid black;
