@@ -24,9 +24,7 @@ export class DataApiService {
 
   public getAuthToken(): Observable<AuthToken> {
     return this.http.post<AuthToken>(
-      `${this.apiUrl}/${tombServerEndpoints.TOKEN_SIGN}`,
-      { userName: 'podrzecze-root', password: 'podrzecze-root' }
-    );
+      `${this.apiUrl}/${tombServerEndpoints.TOKEN_SIGN}`, { access: true });
   }
 
   public getDbData(): Observable<{date: DatabaseDate; people: Person[];}> {
