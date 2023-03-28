@@ -14,3 +14,12 @@ html, body {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+.free-visitors-counter {
+    background-color: rgb(32, 29, 32);
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+}
