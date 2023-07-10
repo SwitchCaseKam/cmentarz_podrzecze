@@ -49,6 +49,13 @@ export class StatsService {
   private setDeathsByYearStats(people: Person[]): void {
     for (let year = 1943; year <= new Date().getFullYear(); year++) {
       const peopleByYear = people.filter((person) => person.deathDate.includes(year.toString()));
+      peopleByYear.sort(function (person1, person2) {
+        const deathDate1 = person1.deathDate.split('.');
+        const deathDate2 = person2.deathDate.split('.');
+        return Number(deathDate1[2]) - Number(deathDate2[2])
+          || Number(deathDate1[1]) - Number(deathDate2[1])
+          || Number(deathDate1[0]) - Number(deathDate2[0]);
+      });
       this.deathsByYearMap.set(year.toString(), peopleByYear);
       this.deathsByYeatStats.years.push(year.toString());
       this.deathsByYeatStats.numberOfDeaths.push(peopleByYear.length);
