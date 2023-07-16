@@ -6,16 +6,21 @@
     <ng-container *ngIf='numberOfAnniversaryPeople > 0; else noAnniversary'>
       <h2>Dzisiejsze rocznice śmierci</h2>
       <div id="anniversary-grid">
-        <ng-container *ngFor="let person of anniversaryPeople">
-          <div class="anniversary-item" (click)="onRowClick(person.tombId, person.id)">
-            <div><img src="assets/icons/tomb-icon.png"></div>
+        <div class="anniversary-item" *ngFor="let person of anniversaryPeople">
+          <div class="anniversary-personal-data-item" (click)="onRowClick(person.tombId, person.id)">
             <div class="person-info">
               <i>Ś.P.</i><br>
               <b>{{ person.name }} {{ person.surname }}</b><br>
+              <br>
               {{ person.anniversaryCounter }}. rocznica
             </div>
+            <div><img src="assets/icons/tomb-icon.png"></div>
           </div>
-        </ng-container>
+          <ng-container *ngIf="person.picturesObj.length !== 0">
+            <ng-image-slider class='pictures' [images]="person.picturesObj" [imageSize]="{width: '30%', height: '10%', space: 4}" #nav></ng-image-slider>  
+          </ng-container>
+          </div>
+        <br>
       </div>
       <br>
       <p>

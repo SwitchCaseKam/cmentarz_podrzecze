@@ -23,6 +23,18 @@ export class AnniversaryComponent implements OnInit, OnDestroy {
       if (anniversaryPeople?.length >= 0) {
         this.anniversaryPeople = anniversaryPeople;
         this.numberOfAnniversaryPeople = this.anniversaryPeople?.length;
+        this.anniversaryPeople?.forEach((person: Person) => {
+          person['picturesObj'] = [];
+          person.pictures.forEach((pictureLink: string, index: number) => {
+            person['picturesObj'].push(
+              {
+                image: pictureLink,
+                thumbImage: pictureLink,
+                title: `${index+1}/${person?.pictures.length}`
+              }
+            )
+          });
+        });
       }
     });
   }

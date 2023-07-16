@@ -6,31 +6,35 @@
   margin-bottom: 1em;
 }
 
-.anniversary-item {
-  display: grid;
-  grid-template-columns: 25% 45% ;
-  justify-items: center;
-  justify-content: center;
+.anniversary-personal-data-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   background-color: rgb(194, 191, 191, 0.6);
   padding: 10px;
   cursor: pointer;
-  margin-bottom: 1em;
 }
 
-.anniversary-item:nth-child(2n) {
+.anniversary-personal-data-item:nth-child(2n) {
   background-color: rgba(175, 167, 167, 0.5);
 }
 
-.anniversary-item:hover {
+.anniversary-personal-data-item:hover {
   background-color: rgb(47, 101, 216);
   color: white;
 }
 
-.anniversary-item:nth-child(2n):hover {
+.anniversary-personal-data-item:nth-child(2n):hover {
   background-color: rgb(47, 101, 216);
   color: white;
 }
 
 .person-info {
   text-align: left;
+}
+
+.anniversary-item {
+  background-color: rgba(175, 167, 167, 0.5);
+  border: 1px solid rgb(189, 187, 187);
+  margin-bottom: 2em;
 }
