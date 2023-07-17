@@ -9,7 +9,7 @@
 .anniversary-personal-data-item {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   background-color: rgb(194, 191, 191, 0.6);
   padding: 10px;
   cursor: pointer;
@@ -37,4 +37,9 @@
   background-color: rgba(175, 167, 167, 0.5);
   border: 1px solid rgb(189, 187, 187);
   margin-bottom: 2em;
+}
+
+.tomb-icon {
+  margin-left: 3em;
+  margin-right: 1em;
 }

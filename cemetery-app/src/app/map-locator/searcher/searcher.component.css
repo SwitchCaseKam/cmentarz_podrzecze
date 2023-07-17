@@ -1,6 +1,6 @@
 #searcher-grid-container {
   display: grid;
-  grid-template-columns: 65% 35%;
+  grid-template-columns: 95% 5%;
   align-content: center;
   gap: 15px;
   padding: 10px;

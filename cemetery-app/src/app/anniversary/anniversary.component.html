@@ -14,7 +14,7 @@
               <br>
               {{ person.anniversaryCounter }}. rocznica
             </div>
-            <div><img src="assets/icons/tomb-icon.png"></div>
+            <div class="tomb-icon"><img src="assets/icons/tomb-icon.png"></div>
           </div>
           <ng-container *ngIf="person.picturesObj.length !== 0">
             <ng-image-slider class='pictures' [images]="person.picturesObj" [imageSize]="{width: '30%', height: '10%', space: 4}" #nav></ng-image-slider>  
@@ -22,7 +22,6 @@
           </div>
         <br>
       </div>
-      <br>
       <p>
         <i>
           Wieczny odpoczynek racz im dać, Panie,<br>
