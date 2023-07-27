@@ -9,6 +9,16 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 15px;
+  margin-bottom: 0.1em;
+}
+
+.main-link {
+  margin-bottom: 0.1em;
+  color: rgb(194, 194, 10);
+}
+
+.main-link:hover {
+  color: rgb(42, 42, 209);
 }
 
 nav {

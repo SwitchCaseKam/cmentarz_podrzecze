@@ -11,3 +11,12 @@
     width: 100%;
     margin-top: 2em;
 }
+
+.email-address {
+    margin-top: 0.5em;
+    margin-bottom: 0.1em;
+}
+
+.main-link {
+    color: rgb(194, 194, 10);
+}
