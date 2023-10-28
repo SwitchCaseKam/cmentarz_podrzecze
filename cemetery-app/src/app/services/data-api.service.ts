@@ -19,6 +19,7 @@ export class DataApiService {
   // private apiUrl = 'http://localhost:3000';
   // private apiUrl = 'https://test-node-tomb-server.herokuapp.com';
   private apiUrl = 'https://test-nodejs-mysql-app.herokuapp.com';
+  // private apiUrl = 'https://cmentarze.online/podrzecze-db';
 
   constructor(private http: HttpClient) { }
 
