@@ -48,7 +48,40 @@ export class GalleryComponent implements OnInit {
         thumbImage: "assets/img/gallery/summer/summer-66.JPG"
       },
     ],
-    autumn: [],
+    autumn: [
+      {
+        image: "assets/img/gallery/autumn/autumn-11.JPG",
+        thumbImage: "assets/img/gallery/autumn/autumn-11.JPG"
+      },
+      {
+        image: "assets/img/gallery/autumn/autumn-11.JPG",
+        thumbImage: "assets/img/gallery/autumn/autumn-11.JPG"
+      },
+      {
+        image: "assets/img/gallery/autumn/autumn-22.JPG",
+        thumbImage: "assets/img/gallery/autumn/autumn-22.JPG"
+      },
+      {
+        image: "assets/img/gallery/autumn/autumn-33.JPG",
+        thumbImage: "assets/img/gallery/autumn/autumn-33.JPG"
+      },
+      {
+        image: "assets/img/gallery/autumn/autumn-44.JPG",
+        thumbImage: "assets/img/gallery/autumn/autumn-44.JPG"
+      },
+      {
+        image: "assets/img/gallery/autumn/autumn-55.JPG",
+        thumbImage: "assets/img/gallery/autumn/autumn-55.JPG"
+      },
+      {
+        image: "assets/img/gallery/autumn/autumn-66.JPG",
+        thumbImage: "assets/img/gallery/autumn/autumn-66.JPG"
+      },
+      {
+        image: "assets/img/gallery/autumn/autumn-77.JPG",
+        thumbImage: "assets/img/gallery/autumn/autumn-77.JPG"
+      }
+    ],
     winter: [
       {
         image: "assets/img/gallery/winter/winter-11.JPG",
