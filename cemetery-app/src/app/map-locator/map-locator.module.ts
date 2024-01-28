@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { SharedModule } from '../shared/shared.module';
+import { SearchDetailsComponent } from './searcher/search-details/search-details.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { SharedModule } from '../shared/shared.module';
     SearcherComponent,
     DetailsComponent,
     MapLocatorComponent,
+    SearchDetailsComponent,
   ],
   imports: [
     CommonModule,

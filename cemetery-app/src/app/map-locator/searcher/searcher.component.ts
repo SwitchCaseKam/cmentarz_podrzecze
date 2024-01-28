@@ -1,10 +1,11 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Observable, Subscription } from 'rxjs';
 import { startWith, map} from 'rxjs/operators';
 import { Person } from 'src/app/models/person.model';
 import { TombMarkerService } from 'src/app/services/tomb-marker.service';
+import { SearchDetailsComponent } from './search-details/search-details.component';
 
 @Component({
   selector: 'app-searcher',
@@ -46,7 +47,20 @@ export class SearcherComponent implements OnInit, OnDestroy {
   }
 
   public getTombInfo(): void {
-    this.tombMarkerService.redirectToMapAndMarkTomb(parseInt(this.searchTombId));
+    const searchTombId = Number(this.searchField.value.search.split(' ')[0]);
+    const typedText = this.searchField.value.search;
+    if (!searchTombId) {
+      const foundPeople = this.allPeople.filter(
+        p => 
+          p.name.toLocaleLowerCase() === typedText.toLocaleLowerCase()
+          || p.surname.toLocaleLowerCase() === typedText.toLocaleLowerCase());
+      const dialogRef = this.dialog.open(SearchDetailsComponent);
+      dialogRef.componentInstance.people = foundPeople;
+      dialogRef.afterClosed().subscribe();
+      return;
+    }
+    
+    this.tombMarkerService.redirectToMapAndMarkTomb(searchTombId);
   }
 
   public handleSearchEvent(event: KeyboardEvent): void {

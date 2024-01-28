@@ -1,0 +1,34 @@
+<div class='container'>
+    <h2 *ngIf="people.length > 0" mat-dialog-title>
+      <div class='title-container'>
+        <b>Znaleziono:</b>
+      </div>
+    </h2>
+    <br>
+  
+    <mat-dialog-content class="mat-typography">
+      <table *ngIf="people.length > 0" class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"> Imię i nazwisko </th>
+            <th scope="col"> Data urodzenia </th>
+            <th scope="col"> Data śmierci </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of people" (click)="onRowClick(person.tombId)">
+            <td mat-dialog-close scope="row"><b>{{ person.name }} {{ person.surname }}</b></td>
+            <td>{{ person.birthDate }}</td>
+            <td>{{ person.deathDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-dialog-content>
+
+    <p *ngIf="people.length <= 0">Nie udało sie znaleźć</p>
+  
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close class="btn btn-secondary">Spróbuj jeszcze raz</button>
+    </mat-dialog-actions>
+  </div>
+  
